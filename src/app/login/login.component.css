@@ -1,0 +1,38 @@
+.example-card {
+    width: 30vw;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 15px;
+    border: 1px solid blue;
+  }
+  
+  @media (max-width: 959px) {
+    .example-card {
+      width: 72vw;
+    }
+  }
+  
+  .mat-card-header {
+    height: 50px;
+    font-size: 22px;
+    font-family: 'connections Light';
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+  }
+  
+  app-custom-input {
+    width: 100%;
+    margin-bottom: 4%;
+  }
+  .button {
+    height: 40px;
+    font-size: 22px;
+    font-family: 'connections Light';
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+  }
+  
