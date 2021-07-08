@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('token', Response[0].token);
       sessionStorage.setItem('userName', Response[0].userName);
       sessionStorage.setItem('userRole',Response[0].userRole);
-      sessionStorage.setItem('userID', Response[0].userID)
+      sessionStorage.setItem('userID', Response[0].userId)
     }
   }
 }

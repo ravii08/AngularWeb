@@ -14,13 +14,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import { NavLinksComponent } from './nav-links/nav-links.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomInputComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomeComponent,
+    NavLinksComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,8 +42,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    CommonModule
-    
+    CommonModule,
+    MatSidenavModule,
+    MatTabsModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

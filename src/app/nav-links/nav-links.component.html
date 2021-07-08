@@ -1,0 +1,4 @@
+<nav mat-tab-nav-bar style="justify-content: space-around;background-color: whitesmoke;">
+    <img src="../assets/boa-logo.jpg" width="275" height="30px" style="padding-right: 20px;padding-top: 15px; padding-left: 30px; margin-bottom: 10px;" alt= "StaterKit">
+    <a mat-tab-link style="padding-top: 8px;" *ngFor="let link of stateVariable.navlinks" [ngClass]="{'activeLink': link.isActive}" [routerLink]="link.link" >{{link.label}}</a>
+</nav>
