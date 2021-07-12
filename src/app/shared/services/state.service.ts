@@ -7,17 +7,18 @@ export class StateService {
 
   navlinks = [
     {
-      label: 'Home',
-      link: '/home',
+      label: 'Dashboard',
+      link: '/dashboard',
       index: 1,
       isActive: false
     },
     {
-      label: 'Dashboard',
-      link: '/dashboard',
+      label: 'Home',
+      link: '/home',
       index: 2,
       isActive: false
     }
+    
   ]
 
 

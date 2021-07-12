@@ -1,4 +1,127 @@
-<nav mat-tab-nav-bar style="justify-content: space-around;background-color: whitesmoke;">
-    <img src="../assets/boa-logo.jpg" width="275" height="30px" style="padding-right: 20px;padding-top: 15px; padding-left: 30px; margin-bottom: 10px;" alt= "StaterKit">
-    <a mat-tab-link style="padding-top: 8px;" *ngFor="let link of stateVariable.navlinks" [ngClass]="{'activeLink': link.isActive}" [routerLink]="link.link" >{{link.label}}</a>
+<nav mat-tab-nav-bar style="justify-content: space-around;background-color: whitesmoke;" role="navigation" >
+    <img src="../assets/boa-logo.jpg" aria-label="BOA Logo" width="275" height="30px" style="padding-right: 20px;padding-top: 15px; padding-left: 30px; margin-bottom: 10px;" alt= "StaterKit">
+    <a mat-tab-link style="padding-top: 8px;" tabindex="0" *ngFor="let link of stateVariable.navlinks" routerLinkActive="activeLink" [ngClass]="{'activeLink': link.isActive}" [routerLink]="link.link" >{{link.label}}</a>
 </nav>
+
+
+
+<!-- <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <mat-icon role="button" tabindex="0">close</mat-icon>
+      <mat-toolbar></mat-toolbar>
+      <mat-nav-list>
+        <mat-list-item style="justify-content: space-around;background-color: whitesmoke;">
+            <img src="../assets/boa-logo.jpg" width="275" height="30px" style="padding-right: 20px;padding-top: 15px; padding-left: 30px; margin-bottom: 10px;" alt= "StaterKit">
+            <a mat-tab-link style="padding-top: 8px;" *ngFor="let link of stateVariable.navlinks" routerLinkActive="activeLink" [ngClass]="{'activeLink': link.isActive}" [routerLink]="link.link" >{{link.label}}</a>
+        </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <nav  mat-tab-nav-bar style="justify-content: space-around;background-color: whitesmoke;">
+          <img src="../assets/boa-logo.jpg" width="275" height="30px" style="padding-right: 20px;padding-top: 15px; padding-left: 30px; margin-bottom: 10px;" alt= "StaterKit">
+          <a mat-tab-link style="padding-top: 8px;" *ngFor="let link of stateVariable.navlinks" routerLinkActive="activeLink" [ngClass]="{'activeLink': link.isActive}" [routerLink]="link.link" >{{link.label}}</a>
+      </nav>
+      <mat-icon role="button" tabindex="0">close</mat-icon>
+    </mat-sidenav-content>
+  </mat-sidenav-container>  -->
+
+
+  <!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="isShown=!isShown">menu</mat-icon>
+      </button>
+      <h1>SimpleCRM</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button [routerLink]="'/accounts'"> Accounts </a>
+        <a mat-button [routerLink]="'/create-account'"> Create Account </a>
+        <a mat-button [routerLink]="'/contacts'"> Contacts </a>
+        <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
+        <a mat-button [routerLink]="'/activities'"> Activities </a>
+        <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
+  
+      </div>
+    </mat-toolbar-row>
+  
+    <mat-toolbar-row>
+        <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
+      </mat-toolbar-row>
+  </mat-toolbar> -->
+
+
+  <!-- <mat-sidenav-container autosize>
+    <mat-sidenav #sidenav mode="side" opened="true">
+      <mat-nav-list>
+  
+        <mat-list-item>
+          <mat-icon mat-list-icon class="chevron-button sidenav-button"  >chevron_right</mat-icon>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="'#'">
+          <mat-icon mat-list-icon >home</mat-icon>
+          <span *ngIf="isExpanded">Dashboard</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="'#'">
+          <mat-icon mat-list-icon>important_devices</mat-icon>
+          <span *ngIf="isExpanded">Info</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="'#'">
+          <mat-icon mat-list-icon>supervisor_account</mat-icon>
+          <span *ngIf="isExpanded">User</span>
+        </mat-list-item>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <div class="content">
+      <mat-toolbar>
+        <h4>Hello everyone</h4>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </div>
+  
+  </mat-sidenav-container> -->
+
+
+
+  <!-- <div style="height: 80vh;">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Responsive Navigation</span>
+        <span class="menu-spacer"></span>
+        <div fxShow="true" fxHide.lt-md>
+          The following menu items will be hidden on both SM and XS screen sizes 
+          <a href="#" mat-button>Menu Item 1</a>
+          <a href="#" mat-button>Menu Item 2</a>
+          <a href="#" mat-button>Menu Item 3</a>
+          <a href="#" mat-button>Menu Item 4</a>
+          <a href="#" mat-button>Menu Item 5</a>
+          <a href="#" mat-button>Menu Item 6</a>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar> -->
+  
+    <!-- <mat-sidenav-container fxFlexFill>
+      <mat-sidenav #sidenav>
+          <mat-icon>close</mat-icon>
+        <mat-nav-list>
+            <nav mat-list-item style="justify-content: space-around;background-color: whitesmoke;">
+                <img src="../assets/boa-logo.jpg" width="275" height="30px" style="padding-right: 20px;padding-top: 15px; padding-left: 30px; margin-bottom: 10px;" alt= "StaterKit">
+                <a  style="padding-top: 8px;" *ngFor="let link of stateVariable.navlinks" routerLinkActive="activeLink" [ngClass]="{'activeLink': link.isActive}" [routerLink]="link.link" >{{link.label}}</a>
+            </nav>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content><nav [sidenav]=draw mat-tab-nav-bar style="justify-content: space-around;background-color: whitesmoke;">
+        <img src="../assets/boa-logo.jpg" width="275" height="30px" style="padding-right: 20px;padding-top: 15px; padding-left: 30px; margin-bottom: 10px;" alt= "StaterKit">
+        <a mat-tab-link style="padding-top: 8px;" *ngFor="let link of stateVariable.navlinks" routerLinkActive="activeLink" [ngClass]="{'activeLink': link.isActive}" [routerLink]="link.link" >{{link.label}}</a>
+    </nav></mat-sidenav-content>
+    </mat-sidenav-container> -->
+  
+  
+  

@@ -2,14 +2,21 @@
     width: 30vw;
     max-width: 500px;
     margin: auto;
-    margin-top: 15px;
-    border: 1px solid blue;
+    margin-top: 4%;
+    border: 1px solid grey;
   }
   
   @media (max-width: 959px) {
     .example-card {
       width: 72vw;
     }
+  }
+  
+  .image {
+    padding-right: 20px;
+    padding-top: 15px; 
+    padding-left: 30px; 
+    margin-bottom: 10px;
   }
   
   .mat-card-header {

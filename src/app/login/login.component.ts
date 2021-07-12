@@ -16,14 +16,14 @@ import { AuthenticationService } from '../shared/services/authentication.service
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
-  username = 'username';
-  password = 'password';
-  required = this.username + 'Required';
+  username = 'Username';
+  password = 'Password';
+  Required = ' Required';
 
   ngOnInit() {
     this.loginForm = this.userLoginForm.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      Username: ['', Validators.required],
+      Password: ['', Validators.required]
     });
   }
 
@@ -35,16 +35,17 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (
-      this.loginForm.get('username').value == 'admin' &&
-      this.loginForm.get('password').value == 'admin123'
-    ) {
+      this.loginForm.get('Username').value == 'admin' &&
+      this.loginForm.get('Password').value == 'admin123'
+    ){
       this._auth.getTokenData().subscribe(res => {
-        console.log(res);
+        // console.log(res);
         this.postLogin(res)
       });
-      
-    } else {
-      alert('ok');
+    }
+    else {
+      alert("enter correct Details")
+      // this.loginForm.reset()
     }
   }
 

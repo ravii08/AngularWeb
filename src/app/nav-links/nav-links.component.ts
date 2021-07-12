@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { StateService } from '../shared/services/state.service';
 
@@ -9,9 +10,13 @@ import { StateService } from '../shared/services/state.service';
 })
 export class NavLinksComponent implements OnInit {
 
+  @ViewChild('sidenav') public myNav: MatSidenav;
+  sidenav: string
+  isShown = false;
   constructor(public stateVariable: StateService, public service: AuthenticationService) { }
 
   ngOnInit(): void {
   }
+
 
 }

@@ -1,15 +1,17 @@
+<mat-toolbar style="height: 50px;">
+  <img src="../assets/boa-logo.jpg" tabindex="0" aria-label="Bank of America image" width="275" height="30px" class="image" alt= "StaterKit">
+</mat-toolbar>
 <form [formGroup]="loginForm" (ngSubmit)="login()">
     <mat-card class="example-card">
       <mat-card-title class="mat-card-header">Login</mat-card-title>
       <mat-card-content>
-        <app-custom-input [parentFormGroup]="loginForm" [fieldName]="username" [Name]="username" type="text"
-          label="Username" [error]="required"></app-custom-input>
-  
+        <app-custom-input  [parentFormGroup]="loginForm" [fieldName]="username" [Name]="username" type="text"
+          label="Username" aria-label="Username"  [error]="username + Required"></app-custom-input>
         <app-custom-input [parentFormGroup]="loginForm" [fieldName]="password" [Name]="password" type="password"
-          label="Password" [error]="required"></app-custom-input>
+          label="Password" aria-label="Password" role="textbox" [error]="password + Required"></app-custom-input>
       </mat-card-content>
       <mat-card-actions class="button">
-        <button mat-raised-button type="submit" role="button" aria-label="Login" color="primary" > Submit </button>
+        <button mat-raised-button type="submit"  role="button" aria-label="Login" color="primary" > Login </button>
       </mat-card-actions>
     </mat-card>
   </form>
