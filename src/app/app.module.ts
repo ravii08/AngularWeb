@@ -20,7 +20,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import { NavLinksComponent } from './nav-links/nav-links.component';
-
+import { MatMenuModule} from '@angular/material/menu';
+import { NavBarComponent } from './nav-bar/nav-bar.component'
 
 
 
@@ -32,6 +33,7 @@ import { NavLinksComponent } from './nav-links/nav-links.component';
     DashboardComponent,
     HomeComponent,
     NavLinksComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { NavLinksComponent } from './nav-links/nav-links.component';
     MatSidenavModule,
     MatTabsModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,8 +10,8 @@ import { StateService } from '../shared/services/state.service';
 })
 export class NavLinksComponent implements OnInit {
 
-  @ViewChild('sidenav') public myNav: MatSidenav;
-  sidenav: string
+  @Input() layout: string;
+  @Input() drawer: any
   isShown = false;
   constructor(public stateVariable: StateService, public service: AuthenticationService) { }
 

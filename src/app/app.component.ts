@@ -11,21 +11,12 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'POC-BOA';
-  @ViewChild('drawer') drawer: any;
-  scroll: boolean = false;
+  
 
-  constructor(public service: AuthenticationService, public  breakpointObserver: BreakpointObserver, public route: Router){}
+  constructor(){}
 
-  closeDrawer() {
-    this.drawer.close();
-  }
+ 
 
 
-  @HostListener("window:resize")
-  onResize() {
-    this.scroll = false;
-    if(window.innerHeight <= 222) {
-      this.scroll = true;
-    }
-  }
+ 
 }

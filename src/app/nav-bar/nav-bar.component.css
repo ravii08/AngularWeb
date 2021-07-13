@@ -1,0 +1,46 @@
+.sidenav-container {
+    height: 100%;
+}
+
+#mat-menu-panel-0 {
+    min-height: auto !important;
+}
+
+.sidenav {
+    width: 300px;
+}
+
+.side-nav-mat-icon {
+    margin-bottom: 15px;
+    position: end;
+}
+
+.logo {
+    padding: 0 15px;
+}
+
+.menu-link {
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+}
+
+.example-spacer {
+    flex: 1 0 auto;
+}
+    
+.mat-icon-menu {
+    color: grey;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 18px;
+
+    
+      
+      
+}
+
+.mat-menu-item:focus {
+    border: 2px solid skyblue !important;
+}

@@ -1,30 +1,55 @@
 .activeLink{
     border-bottom: 2px solid red;
-    
 }
 
-/* mat-sidenav-container {
-    height: 100%;
-  
-    mat-sidenav {
-  
-      mat-nav-list {
-  
-        .chevron-button {
-          transition: 300ms ease-in-out;
-          transform: rotate(0deg);
-          right: 0;
-          float: right;
-          position: absolute;
-        }
-  
-        .chevron-button.rotated {
-          transform: rotate(180deg);
-        }
-      }
-    }
-  } */
+.menu-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
-  .menu-spacer {
-    flex: 1 1 auto;
-  }
+.mat-tab-nav-bar, .mat-tab-header {
+  border-bottom: white;
+}
+
+.mat-tab-link {
+  opacity: 1;
+  font-family:'Times New Roman', Times, serif;
+  height: 33px;
+  font-size: 14px;
+  padding: 0;
+  min-width: 100px;
+  -webkit-tap-highlight-color: red;
+  margin: 0 30px;
+  color: black;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.mat-tab-link :focus {
+  border: 2px solid green;
+  padding: 10px;
+}
+
+.mat-list-base {
+  padding: 0 45px 2px 12px;
+}
+
+.mat-nav-list, .mat-list-item {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+  position: relative;
+  left: 5px;
+}
+  
+.mat-nav-list, .mat-list-item:first-child {
+  margin-top: 30px;
+}
+
+ .mat-list-item:focus {
+  border: 2px solid skyblue;
+}
+
+.mat-list-base, .mat-list-item, .mat-list-item-content:focus {
+  padding: 0 10px !important;
+}
