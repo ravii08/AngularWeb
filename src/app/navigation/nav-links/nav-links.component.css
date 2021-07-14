@@ -46,7 +46,7 @@
   margin-top: 30px;
 }
 
- .mat-list-item:focus {
+.mat-tab-link:focus, .mat-list-item:focus {
   border: 2px solid skyblue;
 }
 

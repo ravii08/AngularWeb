@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { CustomInputComponent } from './custom-input/custom-input.component';
+import { CustomInputComponent } from './shared/form-controls/custom-input/custom-input.component';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,10 +19,13 @@ import { MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
-import { NavLinksComponent } from './nav-links/nav-links.component';
+import { NavLinksComponent } from './navigation/nav-links/nav-links.component';
 import { MatMenuModule} from '@angular/material/menu';
-import { NavBarComponent } from './nav-bar/nav-bar.component'
-
+import { NavBarComponent } from './navigation/nav-bar/nav-bar.component';
+import { CheckBoxComponent } from './shared/form-controls/check-box/check-box.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { RadioBoxComponent } from './shared/form-controls/radio-box/radio-box.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -34,6 +37,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component'
     HomeComponent,
     NavLinksComponent,
     NavBarComponent,
+    CheckBoxComponent,
+    RadioBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component'
     MatTabsModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCheckboxModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

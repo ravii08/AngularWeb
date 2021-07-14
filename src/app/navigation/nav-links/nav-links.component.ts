@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { AuthenticationService } from '../shared/services/authentication.service';
-import { StateService } from '../shared/services/state.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
+import { StateService } from '../../shared/services/state.service';
 
 @Component({
   selector: 'app-nav-links',

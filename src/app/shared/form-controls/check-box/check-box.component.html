@@ -1,0 +1,13 @@
+<div class="Title">
+    <span class="required" *ngIf="isRequired">*</span>
+    <label attr.aria-label={{label}}>{{label}}</label>
+  </div>
+  <div class="check-box">
+      <div class="checkboxElement" *ngFor="let option of Options">
+          <mat-checkbox color="primary" class="mat-check-margin" [(ngModel)]="option[checked]" [id]="option[id]" (change)="checkBoxChange($event)">
+             <span style="padding: 20px;"> {{option[value]}} </span>
+          </mat-checkbox>
+      </div>
+      <mat-error *ngIf="error">{{error}}</mat-error>
+  </div>
+  

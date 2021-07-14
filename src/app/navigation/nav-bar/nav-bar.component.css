@@ -7,7 +7,8 @@
 }
 
 .sidenav {
-    width: 300px;
+    width: 200px;
+    
 }
 
 .side-nav-mat-icon {
@@ -31,16 +32,12 @@
     
 .mat-icon-menu {
     color: grey;
-    position: absolute;
+    position: end;
     top: 8px;
     left: 16px;
-    font-size: 18px;
-
-    
-      
-      
+    font-size: 18px;  
 }
 
-.mat-menu-item:focus {
+ .mat-menu-item:focus {
     border: 2px solid skyblue !important;
 }

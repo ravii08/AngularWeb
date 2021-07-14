@@ -8,21 +8,21 @@
 
         
         <mat-nav-list [ngClass]="{'scroll-nav-list':isScroll}">
-            <app-nav-links [drawer]=drawer layout="side-nav" ></app-nav-links>
+            <app-nav-links [drawer]=drawer layout="side-nav" *ngIf="router.url.indexOf('login')==-1"></app-nav-links>
 
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar>
             <div class="logo" tabindex="-1">
-                  <img src="../assets/boa-logo.jpg" aria-label="BOA Logo" width="275" height="30px" style="padding-right: 20px;padding-top: 15px; padding-left: 30px; margin-bottom: 10px;" alt= "StaterKit">
+                  <img src="../assets/images/boa-logo.jpg" aria-label="BOA Logo" width="275" height="30px" style="padding-right: 20px;padding-top: 15px; padding-left: 30px; margin-bottom: 10px;" alt= "StaterKit">
             </div>
             <div class="menu-link" *ngIf="(isDesktop$ | async) || (isMedium$ | async)">
                 <app-nav-links layout="main-nav" *ngIf="router.url.indexOf('login')==-1"></app-nav-links>
             </div>
             <span class="example-spacer"></span>
-            <button  type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="(isHandset$ | async) || (isSmall$ | async)">
-                <mat-icon class="mat-icon-menu" aria-label="side nav toggle icon">
+            <button class="mat-icon-menu" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="(isHandset$ | async) || (isSmall$ | async) && router.url.indexOf('login')==-1 && this.authService.isLoggedIn == true" >
+                <mat-icon  aria-label="side nav toggle icon">
                     menu
                 </mat-icon>
             </button>

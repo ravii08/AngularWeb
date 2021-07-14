@@ -19,11 +19,13 @@ export class LoginComponent implements OnInit {
   username = 'Username';
   password = 'Password';
   Required = ' Required';
+  
 
   ngOnInit() {
     this.loginForm = this.userLoginForm.group({
       Username: ['', Validators.required],
-      Password: ['', Validators.required]
+      Password: ['', Validators.required],
+    
     });
   }
 
@@ -58,4 +60,5 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('userID', Response[0].userId)
     }
   }
+
 }

@@ -9,10 +9,12 @@ import { StateService } from '../shared/services/state.service';
 })
 export class DashboardComponent implements OnInit {
 
+  
   constructor(public Service: AuthenticationService, public stateVariable: StateService) { }
 
   ngOnInit(): void {
     return console.log("Dashboard")
   }
 
+  
 }

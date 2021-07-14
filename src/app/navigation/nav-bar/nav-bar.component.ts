@@ -5,8 +5,10 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { CommonService } from '../../shared/services/common.service';
 // import { shareReplay } from 'rxjs/operators/shareReplay';
-import { StateService } from '../shared/services/state.service';
+import { StateService } from '../../shared/services/state.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -40,7 +42,8 @@ export class NavBarComponent implements OnInit {
     
   );
 
-  constructor(public stateVaraibles: StateService, public router: Router, public breakpointer: BreakpointObserver) { }
+  constructor(public stateVaraibles: StateService, public router: Router, public breakpointer: BreakpointObserver,
+     public commonService: CommonService, public authService: AuthenticationService) { }
 
   ngOnInit(): void {
     if(window.innerHeight <= 222) {
@@ -61,7 +64,5 @@ export class NavBarComponent implements OnInit {
     }
   }
 }
-function shareReplay(): import("rxjs").OperatorFunction<unknown, boolean> {
-  throw new Error('Function not implemented.');
-}
+
 

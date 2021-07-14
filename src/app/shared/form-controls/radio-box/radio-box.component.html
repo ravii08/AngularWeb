@@ -1,0 +1,13 @@
+<div class="Title">
+    <span class="required" *ngIf="isRequired">*</span>
+    <label attr.aria-label={{label}}>{{label}}</label>
+</div>
+<div class="radio-box" [formGroup]=parentFormGroup>
+    <mat-radio-group class="radio-group" formControlName={{Name}} >
+        <mat-radio-button *ngFor="let option of Options; let i=index" color="primary" class="radio-button"
+            [id]="option[id]" [value]="option" (change)="optionChanged($event)">
+            <span style="padding: 20px;"> {{option[value]}} </span>
+        </mat-radio-button>
+    </mat-radio-group>
+    <mat-error *ngIf="error">{{error}}</mat-error>
+</div>
