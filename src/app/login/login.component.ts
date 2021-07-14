@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   username = 'Username';
   password = 'Password';
   Required = ' Required';
-  
+ 
 
   ngOnInit() {
     this.loginForm = this.userLoginForm.group({

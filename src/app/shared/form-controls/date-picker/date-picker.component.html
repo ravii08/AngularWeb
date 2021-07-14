@@ -1,0 +1,10 @@
+<div>
+    <label>{{label}}</label>
+  </div>
+  <div>
+  <mat-form-field  appearance="outline">
+    <input matInput  [matDatepicker]="picker" (dateChange)="updateDOB($event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  </div>

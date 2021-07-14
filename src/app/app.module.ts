@@ -26,6 +26,9 @@ import { CheckBoxComponent } from './shared/form-controls/check-box/check-box.co
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RadioBoxComponent } from './shared/form-controls/radio-box/radio-box.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { DatePickerComponent } from './shared/form-controls/date-picker/date-picker.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -39,6 +42,7 @@ import {MatRadioModule} from '@angular/material/radio';
     NavBarComponent,
     CheckBoxComponent,
     RadioBoxComponent,
+    DatePickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatListModule,
     MatMenuModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
