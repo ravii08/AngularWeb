@@ -25,7 +25,8 @@ export class CustomInputComponent implements ControlValueAccessor {
   @Input() parentFormGroup: FormGroup;
   @Input() fieldName: string;
   @Input() Name: string;
-  @Input() error: string;
+  @Input() error?: string;
+  @Input() Required? = false;
 
   public value: any;
   constructor() {}

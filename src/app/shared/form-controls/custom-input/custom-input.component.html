@@ -7,6 +7,7 @@
       <input label
         attr.aria-label="{{label}}"
         role="textbox"
+        [required]="Required"
         matInput
         [type]="type"
         [formControl]="formField"
@@ -14,7 +15,7 @@
         name={{fieldName}}
         formControlName={{Name}}
       />
-      <mat-error *ngIf="error">{{error}}</mat-error>
+      <mat-error *ngIf=error>{{error}}</mat-error>
     </mat-form-field>
   </div>
   

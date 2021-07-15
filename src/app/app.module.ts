@@ -29,6 +29,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import { DatePickerComponent } from './shared/form-controls/date-picker/date-picker.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DialogBoxComponent } from './shared/components/dialog-box/dialog-box.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -43,6 +45,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     CheckBoxComponent,
     RadioBoxComponent,
     DatePickerComponent,
+    DialogBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatCheckboxModule,
     MatRadioModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
