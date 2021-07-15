@@ -10,13 +10,13 @@
     </div>
 
     <div *ngSwitchDefault>
-        <div *ngIf="data.header; else noHeaderBlock">
+        <div *ngIf="data.header; else noHeader">
             <span>{{data.header}}</span>
         </div>
     </div>
 
-    <ng-template #noHeaderBlock>
-        <span mat-dialog-title class="noHeaderBlock">{{data.message}}</span>
+    <ng-template #noHeader>
+        <span mat-dialog-title class="noHeader">{{data.message}}</span>
     </ng-template> 
 
     <mat-dialog-actions align="end">
