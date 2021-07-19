@@ -18,76 +18,8 @@ export class ChipComponent  {
   @Input() Name: string;
   @Input() label: string;
   @Input() error: string;
-  addOnBlur = true
-  // visible = true;
-  // selectable = true;
+  addOnBlur = true;
   removable = true;
-  
-  // countriesCtrl = new FormControl();
-  
-  // filteredCountries: Observable<string[]>;
-  // countries: string[] = [];
-  // allCountries: ['Apple',
-  // 'Lemon',
-  // 'Lime',
-  // 'Orange',
-  // 'Strawberry'];
-
-
-  // @ViewChild('chipList', {static: false }) chipList: MatChipList;
-  // readonly separatorKeysCodes: number[] = [ENTER];
-  // @ViewChild('countryInput') countryInput: ElementRef<HTMLInputElement>;
-  // @ViewChild('auto') matAutocomplete: MatAutocomplete;
-  
-
-
-
-  // constructor(public authService: AuthenticationService) {
-  //   this.filteredCountries = this.countriesCtrl.valueChanges.pipe(
-  //       startWith(''),
-  //       map((country:(string | null))  => country ? this._filter(country):this.allCountries.slice()));
-  // }
-
-  // ngOnInit() {
-  // }
-
-  // add(event: MatChipInputEvent): void {
-  //   const input = event.input;
-  //   const value = event.value;
-
-  //   // Add our country
-  //   if ((value || '').trim()) {
-  //     this.countries.push(value.trim());
-  //   }
-
-  //   // Reset the input value
-  //   if (input) {
-  //     input.value = '';
-  //   }
-
-  //   this.countriesCtrl.setValue(null);
-  // }
-
-  // remove(country: string): void {
-  //   const index = this.countries.indexOf(country);
-
-  //   if (index >= 0) {
-  //     this.countries.splice(index, 1);
-  //   }
-  // }
-
-  // selected(event: MatAutocompleteSelectedEvent): void {
-  //   this.countries.push(event.option.viewValue);
-  //   this.countryInput.nativeElement.value = '';
-  //   this.countriesCtrl.setValue(null);
-  // }
-
-  // private _filter(value: string): string[] {
-  //   const filterValue = value.toLowerCase();
-
-  //   return this.allCountries.filter(country => country.toLowerCase().indexOf(filterValue) === 0);
-  // }
-
 
   separatorKeysCodes = [ENTER, COMMA];
 
@@ -120,13 +52,12 @@ export class ChipComponent  {
     const input = event.input;
     const value = event.value;
 
-    // Add our fruit
+    
     if ((value || '').trim()) {
 
       this.fruits.push(value.trim());
     }
 
-    // Reset the input value
     if (input) {
       input.value = '';
     }

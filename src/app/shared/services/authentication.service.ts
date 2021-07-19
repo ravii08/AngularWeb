@@ -23,15 +23,8 @@ export class AuthenticationService {
   login() {
     this.isLoggedIn = true;
     this.route.navigate(['/dashboard']);
-    // alert("loggedin")
   }
-  // logout() {
-  //   sessionStorage.removeItem('currentUser');
-  // }
-
-  // public get loggedIn(): boolean {
-  //   return (sessionStorage.getItem('currentUser') !== null);
-  // }
+ 
 
   getTokenData() {
     return this.http.get(this.TokenUrl, headerOptions);
