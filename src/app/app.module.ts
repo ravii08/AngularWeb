@@ -31,6 +31,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DialogBoxComponent } from './shared/components/dialog-box/dialog-box.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ChipComponent } from './shared/form-controls/chip/chip.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatSelectFilterModule } from 'mat-select-filter';
+import {MatSelectModule} from '@angular/material/select';
+import { DropDownComponent } from './shared/form-controls/drop-down/drop-down.component';
 
 
 @NgModule({
@@ -46,6 +53,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     RadioBoxComponent,
     DatePickerComponent,
     DialogBoxComponent,
+    ChipComponent,
+    DropDownComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +77,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    NgxMatSelectSearchModule,
+    MatSelectFilterModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

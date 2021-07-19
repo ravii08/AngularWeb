@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { StateService } from '../shared/services/state.service';
 
@@ -9,12 +10,20 @@ import { StateService } from '../shared/services/state.service';
 })
 export class DashboardComponent implements OnInit {
 
-  
-  constructor(public Service: AuthenticationService, public stateVariable: StateService) { }
+  public loginForm: FormGroup;
+  chip = "Chip";
+  chipLabel = "Chip Label";
+  chipError: string;
 
-  ngOnInit(): void {
-    return console.log("Dashboard")
+ 
+
+
+  constructor(private Service: AuthenticationService, public stateVariable: StateService) { }
+
+  ngOnInit():void {
+     console.log("Dashboard");
   }
 
+  
   
 }

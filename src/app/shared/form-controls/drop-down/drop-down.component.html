@@ -1,0 +1,16 @@
+<div>
+    <label attr.aria-label={{label}}>{{label}}</label>
+</div>
+<mat-form-field [formGroup]=parentFormGroup appearance="outline">
+    <mat-select placeholder="Select" formControlName={{Name}} [required]="Required">
+        <mat-select-filter [array]="dropDownData" 
+            [displayMember]="'value'"  
+           (filteredReturn)="dropDownData =$event">
+        </mat-select-filter>
+        <mat-option>--RESET--</mat-option>
+        <mat-option *ngFor="let item of dropDownData" [value]="item">
+            {{item.value}}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf=error>{{error}}</mat-error>
+</mat-form-field>

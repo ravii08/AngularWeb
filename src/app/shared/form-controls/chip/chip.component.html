@@ -1,0 +1,127 @@
+<!-- <div class="Title">
+    <label for="chip" attr.aria-label={{label}}>{{label}}</label>
+</div> -->
+
+<!-- <div>
+    <form [formGroup]="parentFormGroup"> 
+    <mat-form-field class="example-chip-list" appearance="outline">
+        <mat-chip-list #chipList>
+            <mat-chip style="color:red; background-color: blue; border-radius: 2px; " 
+            *ngFor="let country of countries" selectable="true" selected="true" removable=true 
+                (removed)="remove(country)">
+                {{country}}
+                <mat-icon matChipRemove>close</mat-icon>
+            </mat-chip>
+            <input id="chip" class="input" placeholder="Select user" #countryInput [formControl]="countriesCtrl"
+                [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="add($event)" [matChipInputAddOnBlur]="addOnBlur">
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let country of filteredCountries | async" [value]="country">
+                {{country}}
+            </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf=error>{{error}}</mat-error>
+    </mat-form-field>
+ </form> 
+</div> -->
+
+
+<!-- <div>
+
+    <mat-form-field class="example-chip-list" appearance="outline" >
+     <mat-chip-list #chipList aria-label="Country selection">
+       <mat-chip style="color:red; background-color: blue; border-radius: 2px;
+       "
+         *ngFor="let country of countries"
+         [selectable]="selectable"
+         [removable]="removable"
+         (removed)="remove(country)">
+         {{country}}
+         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+       </mat-chip>
+       <input class="input"
+         #countryInput
+         [formControl]="countriesCtrl"
+         [matAutocomplete]="auto"
+         [matChipInputFor]="chipList"
+         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+         (matChipInputTokenEnd)="add($event)">
+     </mat-chip-list>
+     <mat-autocomplete  #auto="matAutocomplete" (optionSelected)="selected($event)">
+       <mat-option *ngFor="let country of filteredCountries | async" [value]="country">
+         {{country[0].name}}
+       </mat-option>
+     </mat-autocomplete>
+   </mat-form-field>
+   
+   </div> -->
+
+ <!-- <div class="Title">
+    <label  attr.aria-label={{label}}>{{label}}</label>
+</div>
+<form [formGroup]="parentFormGroup">
+   <mat-form-field  appearance="outline">
+    <mat-chip-list #chipList>
+      <mat-chip class="mat-chip"
+        *ngFor="let fruit of fruits"
+        selectable="true" selected="true" removable=true 
+        (removed)="remove(fruit)">
+        {{fruit}}
+        <mat-icon matChipRemove  *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+       class="input" placeholder="Select fruit" #fruitInput formControlName={{Name}}
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+      />
+    
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+        {{ fruit }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form> -->
+
+
+
+ <div class="Title">
+  <label  attr.aria-label={{label}}>{{label}}</label>
+</div>
+<!-- <form [formGroup]="parentFormGroup"> -->
+<mat-form-field  appearance="outline">
+  <mat-chip-list #chipList>
+    <mat-chip
+      *ngFor="let fruit of fruits"
+      selectable="true"
+      removable="true"
+      selected="true"
+      (removed)="remove(fruit)">
+      {{fruit}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input
+      
+      placeholder="Select fruit" #fruitInput 
+      [formControl]="fruitCtrl"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="add($event)"
+    />
+  </mat-chip-list>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+      {{ fruit }}
+    </mat-option>
+  </mat-autocomplete>
+  <mat-error *ngIf=error>{{error}}</mat-error>
+</mat-form-field>
+
+<!-- </form> -->

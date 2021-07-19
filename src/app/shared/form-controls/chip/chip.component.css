@@ -1,0 +1,10 @@
+.mat-chip {
+    background-color: gainsboro;
+   
+}
+
+.mat-standard-chip {
+    border-radius: 2px;
+    color:white;
+}
+

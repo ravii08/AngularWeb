@@ -19,7 +19,7 @@ import {
     }
   ]
 })
-export class CustomInputComponent implements ControlValueAccessor {
+export class CustomInputComponent  {
   @Input() label: string;
   @Input() type: 'text' | 'email' | 'password';
   @Input() parentFormGroup: FormGroup;
@@ -31,31 +31,5 @@ export class CustomInputComponent implements ControlValueAccessor {
   public value: any;
   constructor() {}
 
-  public changed: (value: any) => void;
-  public touched: () => void;
-  public isDisabled: boolean;
-
-  get formField(): FormControl {
-    return this.parentFormGroup.get(this.fieldName) as FormControl;
-  }
-
-  public writeValue(value: any): void {
-    this.value = value;
-  }
-
-  public onChange(event: Event): void {
-    const value: any = (<HTMLInputElement>event.target).value;
-    this.changed(value);
-  }
-
-  public registerOnChange(fn: any): void {
-    this.changed = fn;
-  }
-
-  public registerOnTouched(fn: any): void {
-    this.touched = fn;
-  }
-  public setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
-  }
+  
 }

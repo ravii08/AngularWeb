@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DialogBoxComponent } from '../shared/components/dialog-box/dialog-box.component';
@@ -22,71 +22,67 @@ export class LoginComponent implements OnInit {
   password = 'Password';
   Required = ' Required';
   nameError: string;
-  passwordError: string
- formError = [{name: this.username, Text: this.userNameLabel},
-        {name: this.password, Text: this.PasswordLabel}]
+  passwordError: string;
 
+ 
+
+  
+  formError = [{ name: this.username, Text: this.userNameLabel },
+  { name: this.password, Text: this.PasswordLabel }];
+  userData: any;
+   
   ngOnInit() {
     this.loginForm = this.userLoginForm.group({
       Username: ['', Validators.required],
       Password: ['', Validators.required],
-    
     });
-    console.log(this.ErrorArray)
+
   }
 
   constructor(
-    private _auth: AuthenticationService,
-    private _router: Router,
-    public userLoginForm: FormBuilder,
-    public dialog: MatDialog,
-    public stateService: StateService
-  ) {}
+    private _auth: AuthenticationService, private _router: Router, public userLoginForm: FormBuilder, public dialog: MatDialog,
+    public stateService: StateService) { }
 
   login() {
-      this.ValidateFields();
-      if(this.loginForm.invalid) {
-        const dialogRef = this.dialog.open(DialogBoxComponent, {
-          data: {message: this.ErrorArray, type:this.stateService.ErrorType}
-        });
-        
-        return
-      }
-     this.validateUser()
-     
+    this.ValidateFields();
+    if (this.loginForm.invalid) {
+      const dialogRef = this.dialog.open(DialogBoxComponent, {
+        data: { message: this.ErrorArray, type: this.stateService.ErrorType }
+      });
+
+      return
+    }
+    this.validateUser()
   }
 
   validateUser() {
-    if (
-      this.loginForm.get('Username').value == 'admin' &&
-      this.loginForm.get('Password').value == 'admin123'
-    ){
+    if (this.loginForm.get('Username').value == 'admin' && this.loginForm.get('Password').value == 'admin123') {
       this._auth.getTokenData().subscribe(res => {
         this.postLogin(res)
       });
     }
   }
 
-  postLogin(Response:any) {
-      this._auth.login();
-      sessionStorage.setItem('token', Response[0].token);
-      sessionStorage.setItem('userName', Response[0].userName);
-      sessionStorage.setItem('userRole',Response[0].userRole);
-      sessionStorage.setItem('userID', Response[0].userId)
-    
+  postLogin(Response: any) {
+    this._auth.login();
+    sessionStorage.setItem('token', Response[0].token);
+    sessionStorage.setItem('userName', Response[0].userName);
+    sessionStorage.setItem('userRole', Response[0].userRole);
+    sessionStorage.setItem('userID', Response[0].userId)
+
   }
 
   ValidateFields() {
     this.ErrorArray = [];
-    for(const loginControl in this.loginForm.controls) {
+    for (const loginControl in this.loginForm.controls) {
       const control = this.loginForm.get(loginControl);
       control.markAsTouched();
-      if(control.errors) {
-        for(const typeError in control.errors) {
+      if (control.errors) {
+        for (const typeError in control.errors) {
           const errorText = this.formError.find(x => x.name == loginControl).name;
-          if(typeError == 'required') {
+          if (typeError == 'required') {
             this.ErrorArray.push(errorText + ' Required');
-            
+
           }
         }
       }
