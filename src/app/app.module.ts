@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CustomInputComponent } from './shared/form-controls/custom-input/custom-input.component';
 import { MatInputModule } from '@angular/material/input';
@@ -38,6 +37,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatSelectFilterModule } from 'mat-select-filter';
 import {MatSelectModule} from '@angular/material/select';
 import { DropDownComponent } from './shared/form-controls/drop-down/drop-down.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -82,7 +82,8 @@ import { DropDownComponent } from './shared/form-controls/drop-down/drop-down.co
     MatAutocompleteModule,
     NgxMatSelectSearchModule,
     MatSelectFilterModule,
-    MatSelectModule
+    MatSelectModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

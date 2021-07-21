@@ -15,7 +15,7 @@
     <mat-sidenav-content>
         <mat-toolbar>
             <div class="logo" tabindex="-1">
-                  <img src="../assets/images/boa-logo.jpg" aria-label="BOA Logo" width="275" height="30px" style="padding-right: 20px;padding-top: 15px; padding-left: 30px; margin-bottom: 10px;" alt= "StaterKit">
+                  <p  aria-label="BOA Logo"  cla >StaterKit</p>
             </div>
             <div class="menu-link" *ngIf="(isDesktop$ | async) || (isMedium$ | async)">
                 <app-nav-links layout="main-nav" *ngIf="router.url.indexOf('login')==-1"></app-nav-links>

@@ -15,7 +15,7 @@ export class StateService {
       isActive: false
     },
     {
-      label: 'Home',
+      label: 'Forms',
       link: '/home',
       index: 2,
       isActive: false
