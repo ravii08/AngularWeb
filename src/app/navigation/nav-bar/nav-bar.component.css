@@ -1,3 +1,4 @@
+@media (min-width: 200px) {
 .sidenav-container {
     height: 100%;
 }
@@ -41,4 +42,5 @@
 
  .mat-menu-item:focus {
     border: 2px solid skyblue !important;
+}
 }

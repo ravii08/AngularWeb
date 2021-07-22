@@ -4,9 +4,9 @@
 </div>
 <div class="radio-box" [formGroup]=parentFormGroup>
     <mat-radio-group class="radio-group" formControlName={{Name}} >
-        <mat-radio-button *ngFor="let option of Options; let i=index" color="primary" class="radio-button"
-            [id]="option[id]" [value]="option" (change)="optionChanged($event)">
-            <span style="padding: 20px;"> {{option[value]}} </span>
+        <mat-radio-button *ngFor="let option of Options" color="primary" class="radio-button"
+            [value]="option" (change)="optionChanged($event)">
+            <span style="padding: 10px;"> {{option}} </span>
         </mat-radio-button>
     </mat-radio-group>
     <mat-error *ngIf="error">{{error}}</mat-error>

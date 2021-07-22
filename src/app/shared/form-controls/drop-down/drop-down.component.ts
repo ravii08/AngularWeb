@@ -13,10 +13,13 @@ export class DropDownComponent implements OnInit {
   @Input() Required? = false;
   @Input() error?: string;
   
+  @Input() value: string = 'value';
 
+  @Input() id: string = 'id';
   @Input() fieldName: string;
 
   @Input() dropDownData: string;
+  
   constructor() { }
 
   ngOnInit(): void {

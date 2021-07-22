@@ -28,7 +28,7 @@ export class ChipComponent  {
   filteredFruits: Observable<any[]>;
 
   fruits = [
-    'Lemon',
+    
   ];
 
   allFruits = [

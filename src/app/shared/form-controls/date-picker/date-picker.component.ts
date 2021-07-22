@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-date-picker',
@@ -6,10 +7,20 @@ import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./date-picker.component.css']
 })
 export class DatePickerComponent implements OnInit {
+  @Input() parentFormGroup: FormGroup;
+
+  @Input() Name: string;
 
   @Input() labelForDate : string;
+
   @Input() label: string;
+
+  @Input() error: string;
+
+  @Input() Required? = false;
+
   @Output() onClick = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {

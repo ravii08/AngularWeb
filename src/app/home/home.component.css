@@ -1,0 +1,16 @@
+.forms{
+    display:  flex; justify-content: space-evenly;flex-wrap: wrap;
+}
+.card {
+    width: 120px;height: 80px; background-color: burlywood;
+}
+
+
+@media (max-width: 959px) {
+    
+    .card {
+        margin-top: 15px;
+    }
+}
+
+

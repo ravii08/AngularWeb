@@ -2,8 +2,8 @@
  <div class="Title">
   <label  attr.aria-label={{label}}>{{label}}</label>
 </div>
-<!-- <form [formGroup]="parentFormGroup"> -->
-<mat-form-field  appearance="outline">
+
+<mat-form-field [formGroup]=parentFormGroup  appearance="outline">
   <mat-chip-list #chipList>
     <mat-chip
       *ngFor="let fruit of fruits"
@@ -17,7 +17,7 @@
     <input
       
       placeholder="Select fruit" #fruitInput 
-      [formControl]="fruitCtrl"
+      formControlName={{Name}}
       [matAutocomplete]="auto"
       [matChipInputFor]="chipList"
       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -33,4 +33,4 @@
   <mat-error *ngIf=error>{{error}}</mat-error>
 </mat-form-field>
 
-<!-- </form> -->
+

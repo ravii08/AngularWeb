@@ -17,7 +17,11 @@ export class AuthenticationService {
 
   chipUrl = 'https://jsonplaceholder.typicode.com/users';
 
-  dropDownData = 'http://localhost:4000/Users'
+  dropDownDataUrl = 'http://localhost:4000/Users';
+
+  checkBoxDataUrl = 'http://localhost:4000/CheckBox';
+
+  radioButtonDataUrl = 'http://localhost:4000/RadioButton';
 
   constructor(private route: Router, private http: HttpClient) {}
   login() {
@@ -35,6 +39,14 @@ export class AuthenticationService {
   }
 
   getDropDownData():Observable<any> {
-    return this.http.get<any>(this.dropDownData, headerOptions)
+    return this.http.get<any>(this.dropDownDataUrl, headerOptions)
+  }
+
+  getCheckBoxData(): Observable<any>{
+    return this.http.get<any>(this.checkBoxDataUrl, headerOptions)
+  }
+
+  getRadioButtonData(): Observable<any>{
+    return this.http.get<any>(this.radioButtonDataUrl,headerOptions)
   }
 }

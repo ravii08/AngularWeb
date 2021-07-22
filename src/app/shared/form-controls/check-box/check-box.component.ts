@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -16,21 +17,25 @@ export class CheckBoxComponent implements OnInit {
 
   @Input() error?: string;
 
-  @Input() value: string = 'value';
+  @Input() value: string;
 
-  @Input() id: string = 'id';
+  @Input() Name: string;
 
-  @Input() checked: string = 'checked';
+  @Input() parentFormGroup : FormGroup;
 
   @Output() valueSelectionChanged = new EventEmitter();
+
 
   constructor() { }
 
   ngOnInit(): void {
+   
+
   }
 
   checkBoxChange(value:any) {
-    this.valueSelectionChanged.emit(value)
+ this.valueSelectionChanged.emit(value.source.value)
+
   }
 
 }

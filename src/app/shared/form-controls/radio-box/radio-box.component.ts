@@ -19,10 +19,6 @@ export class RadioBoxComponent implements OnInit {
 
   @Input() value: string = 'value';
 
-  @Input() id: string = 'id';
-
-  @Input() checked: string = 'checked';
-
   @Input() Name : string;
 
   @Input() parentFormGroup: FormGroup;
@@ -35,7 +31,7 @@ export class RadioBoxComponent implements OnInit {
   }
 
   optionChanged(value: any) {
-    this.valueSelectionChanged.emit(value)
+    this.valueSelectionChanged.emit(value.source.value)
   }
 
 }

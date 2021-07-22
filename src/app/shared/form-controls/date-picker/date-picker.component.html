@@ -1,10 +1,11 @@
-<div>
+<div class="Title">
     <label>{{label}}</label>
   </div>
   <div>
-  <mat-form-field  appearance="outline">
-    <input matInput  [matDatepicker]="picker" (dateChange)="updateDOB($event)">
+  <mat-form-field  appearance="outline" [formGroup]="parentFormGroup">
+    <input matInput formControlName={{Name}}  [matDatepicker]="picker" [required]="Required" (dateChange)="updateDOB($event)">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf=error>{{error}}</mat-error>
   </mat-form-field>
   </div>

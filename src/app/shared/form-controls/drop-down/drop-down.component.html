@@ -9,7 +9,7 @@
         </mat-select-filter>
         <mat-option>--RESET--</mat-option>
         <mat-option *ngFor="let item of dropDownData" [value]="item">
-            {{item.value}}
+            {{item}}
         </mat-option>
     </mat-select>
     <mat-error *ngIf=error>{{error}}</mat-error>

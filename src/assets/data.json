@@ -11,5 +11,19 @@
         { "id": 9, "value": "AAI" },
         { "id": 10, "value": "AAJ" },
         { "id": 11, "value": "AAK" }
-    ]
+    ],
+    "CheckBox": [
+        
+            {"value":"Angular", "id": 1},
+            {"value":"java", "id": 2},
+            {"value":"AWS", "id": 3},
+            {"value":"ReactJS", "id": 4},
+            {"value":"Python", "id": 5}
+          ],
+
+    "RadioButton": [
+         {"value":"Men", "id":1},
+         {"value":"Women", "id":2}
+      ]
+    
 }

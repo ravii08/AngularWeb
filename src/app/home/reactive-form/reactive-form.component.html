@@ -1,3 +1,44 @@
-<form>
-    
+
+
+
+<form [formGroup]="ReactiveForm" (ngSubmit)="submit()" >
+    <div class="formsection">
+        <h1 align="center">Reactive Form</h1>
+        <div>
+            <app-custom-input [parentFormGroup]="ReactiveForm"  [Name]="username" type="text"
+                [Required]=true [label]="userNameLabel" aria-label="Username" [error]="nameError">
+            </app-custom-input>
+        </div>
+        
+        <div>
+            <app-check-box [Options]="checkedData" [parentFormGroup]="ReactiveForm" [Name]="checkValue"
+                (valueSelectionChanged)="okcheckBoxChange($event)" [error]="checkError" [label]="checkLabel">
+            </app-check-box>
+        </div>
+        <div style="margin-top: 10px;"></div>
+        <div>
+            <app-drop-down [parentFormGroup]="ReactiveForm" [error]="dropDownError" [Name]="dropDownValue" [label]="dropDownLabel"
+                [dropDownData]="dropDownData">
+            </app-drop-down>
+        </div>
+        
+        <div>
+            <app-radio-box [parentFormGroup]="ReactiveForm" [Name]="radioButtonValue" type='radio' [Options]="radioButtonData" 
+                (valueSelectionChanged)="onRadioChange($event)" [error]="radioButtonError" [label]="radioButtonLabel">
+            </app-radio-box>
+        </div>
+        <div style="margin-top: 10px;"></div>
+        <div>
+            <app-date-picker [parentFormGroup]="ReactiveForm" [error]="dateError" (onClick)="functioncall($event)" [Name]="dateValue"
+                [label]="dateLabel"></app-date-picker>
+        </div>
+        <div>
+            <app-chip [parentFormGroup]="ReactiveForm" [Name]="chipValue" [label]="chipLabel"></app-chip>
+        </div>
+    </div>
+    <div align="center">
+        <button mat-button color="primary" style="background-color: cornflowerblue;">Primary</button>
+    </div>
 </form>
+
+<p>Form value: {{ ReactiveForm.value | json }}</p>
