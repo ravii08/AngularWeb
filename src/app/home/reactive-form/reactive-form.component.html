@@ -1,8 +1,6 @@
-
-
-
-<form [formGroup]="ReactiveForm" (ngSubmit)="submit()" >
+<form [formGroup]="ReactiveForm"  (ngSubmit)="submit()" >
     <div class="formsection">
+
         <h1 align="center">Reactive Form</h1>
         <div>
             <app-custom-input [parentFormGroup]="ReactiveForm"  [Name]="username" type="text"
@@ -35,10 +33,11 @@
         <div>
             <app-chip [parentFormGroup]="ReactiveForm" [Name]="chipValue" [label]="chipLabel"></app-chip>
         </div>
+
+        <div align="center">
+            <button mat-button color="primary" style="background-color: cornflowerblue;">Primary</button>
+        </div>
     </div>
-    <div align="center">
-        <button mat-button color="primary" style="background-color: cornflowerblue;">Primary</button>
-    </div>
+   
 </form>
 
-<p>Form value: {{ ReactiveForm.value | json }}</p>

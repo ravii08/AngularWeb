@@ -1,12 +1,30 @@
 <div [ngSwitch]="data.type">
     <div *ngSwitchCase="'Error'">
-        <span mat-dialog-title class="mat-title-title">{{ErrorHeader}}</span>
+        <span mat-dialog-title class="mat-title-title" >{{ErrorHeader}}</span>
         <div class="Validation-content">
             <mat-dialog-content color="warn" *ngFor="let message of data.message">
                 {{message}}
             </mat-dialog-content>
         </div>
+    </div>
 
+    <div *ngSwitchCase="'formData'">
+        <span mat-dialog-title class="mat-title-title text">Form Data</span>
+        <mat-dialog-content color="warn" *ngIf="formData">
+        <mat-list>
+            <mat-list-item>UserName:  {{formData.message.Username}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>CheckBox: {{formData.message.check}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>DropDown: {{formData.message.dropDown}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>RadioButton: {{formData.message.RadioButton}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Date: {{formData.message.JoiningDate}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Chip: {{formData.message.chip}}</mat-list-item>
+          </mat-list>
+        </mat-dialog-content>
     </div>
 
     <div *ngSwitchDefault>
@@ -18,6 +36,7 @@
     <ng-template #noHeader>
         <span mat-dialog-title class="noHeader">{{data.message}}</span>
     </ng-template> 
+
 
     <mat-dialog-actions align="end">
         <button mat-button class="mat-button" color="primary" style="background-color: blue;"  [mat-dialog-close]=false><span style="color: white;">{{buttonText1}}</span></button>

@@ -72,14 +72,15 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   submit() {
-   let data = this.ReactiveForm.get('RadioButton')
-   if (this.ReactiveForm.valid) {
+   let data = this.ReactiveForm
+   
     const dialogRef = this.dialog.open(DialogBoxComponent, {
-      data: { message: data, type: this.stateService.confirmation }
+      width: '400px',
+      data: { message: data.value, type: this.stateService.FormType }
     });
+    console.log(data.value)
   }
-}
-
+ 
   okcheckBoxChange(event) {
     
     console.log(event)

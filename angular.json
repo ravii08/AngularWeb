@@ -5,7 +5,11 @@
   "projects": {
     "POC-BOA": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -28,6 +32,11 @@
               "src/assets/styles/common.scss",
               "src/assets/styles/forms.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles"
+              ]
+            },
            
             "scripts": [],
             "vendorChunk": true,

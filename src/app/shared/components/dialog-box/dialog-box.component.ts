@@ -12,13 +12,15 @@ export class DialogBoxComponent implements OnInit {
   buttonText1 = "ok";
   buttonText2 = null;
   ErrorHeader = "All the required fileds must contain correct information. Check and validate required fields";
-
+  formData: any;
   constructor(public stateService: StateService, public dialog: MatDialog, public dialogRef: MatDialogRef<DialogBoxComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: any) { 
       this.buttonsChange()
     }
 
   ngOnInit(): void {
+    this.formData = this.data
+    console.log(this.formData)
   }
 
   buttonsChange() {

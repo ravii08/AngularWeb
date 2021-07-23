@@ -18,3 +18,15 @@
 .noHeader {
     font-family: 'Times New Roman', Times, serif;
 }
+
+.form-data {
+    margin-top: 20px;
+}
+
+td {
+    padding-left: 20px;
+}
+
+.text {
+    text-align: center;
+}
