@@ -24,13 +24,15 @@
       [matChipInputAddOnBlur]="addOnBlur"
       (matChipInputTokenEnd)="add($event)"
     />
+    
   </mat-chip-list>
   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
     <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
       {{ fruit }}
     </mat-option>
+    
   </mat-autocomplete>
-  <mat-error *ngIf=error>{{error}}</mat-error>
+  
 </mat-form-field>
 
 

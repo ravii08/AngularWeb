@@ -1,6 +1,6 @@
-import { V } from '@angular/cdk/keycodes';
+import { C, V } from '@angular/cdk/keycodes';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBoxComponent } from 'src/app/shared/components/dialog-box/dialog-box.component';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
@@ -14,10 +14,11 @@ import { StateService } from 'src/app/shared/services/state.service';
 export class ReactiveFormComponent implements OnInit {
 
   public ReactiveForm: FormGroup;
-  ErrorArray: any;
+  ErrorArray: any= [] ;
+  Required = ' Required';
+
   userNameLabel = "UserName";
   username = 'Username';
-  Required = ' Required';
   nameError: string;
 
   checkValue = "check";
@@ -43,6 +44,7 @@ export class ReactiveFormComponent implements OnInit {
   chipValue = "chip";
   chipLabel = "Chip Label";
   chipError: string;
+  alFieldError = [];
 
 
   formError = [{ name: this.username, Text: this.userNameLabel },
@@ -57,28 +59,41 @@ export class ReactiveFormComponent implements OnInit {
   constructor(public userLoginForm: FormBuilder, public Service: AuthenticationService, public dialog: MatDialog,
     public stateService: StateService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.ReactiveForm = this.userLoginForm.group({
       Username: ['', Validators.required],
       check: ['',Validators.required],
-      dropDown: ['', Validators.required],
+      dropDown: ['',Validators.required],
       RadioButton: ['',Validators.required],
       JoiningDate: ['',Validators.required],
-      chip: ['',Validators.required]
+      chip: ['']
     });
     this.dropDown();
     this.checkBox();
     this.radioButton();
+    
   }
 
   submit() {
-   let data = this.ReactiveForm
    
+   this.ValidateFields();
+   if(this.ReactiveForm.invalid){
     const dialogRef = this.dialog.open(DialogBoxComponent, {
-      width: '400px',
-      data: { message: data.value, type: this.stateService.FormType }
+      data: { message: this.ErrorArray , type: this.stateService.ErrorType }
     });
-    console.log(data.value)
+    return;
+   }
+  this.validateForm();
+  }
+
+  validateForm() {
+    let data = this.ReactiveForm
+    if(this.ReactiveForm.valid) {
+      const dialogRef = this.dialog.open(DialogBoxComponent, {
+        width: '400px',
+        data: { message: data.value, type: this.stateService.FormType }
+      });
+    }
   }
  
   okcheckBoxChange(event) {
@@ -117,5 +132,23 @@ export class ReactiveFormComponent implements OnInit {
  functioncall(event: any) {
       this.date = event.value
       const converted = new Date(this.date).toLocaleDateString(); 
+}
+
+ValidateFields() {
+  
+  this.ErrorArray = [];
+  for (const loginControl in this.ReactiveForm.controls) {
+    const control = this.ReactiveForm.get(loginControl);
+    control.markAsTouched();
+    if (control.errors) {
+      for (const typeError in control.errors) {
+        const errorText = this.formError.find(x => x.name == loginControl).Text;
+        if (typeError == 'required') {
+          this.ErrorArray.push(errorText + this.Required);
+          
+        }
+      }
+    }
+  }
 }
 }

@@ -20,7 +20,6 @@ export class DialogBoxComponent implements OnInit {
 
   ngOnInit(): void {
     this.formData = this.data
-    console.log(this.formData)
   }
 
   buttonsChange() {

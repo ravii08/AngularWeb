@@ -49,8 +49,7 @@ export class LoginComponent implements OnInit {
       const dialogRef = this.dialog.open(DialogBoxComponent, {
         data: { message: this.ErrorArray, type: this.stateService.ErrorType }
       });
-
-      return
+     return;
     }
     this.validateUser()
   }
@@ -73,16 +72,17 @@ export class LoginComponent implements OnInit {
   }
 
   ValidateFields() {
+    const error = '';
     this.ErrorArray = [];
     for (const loginControl in this.loginForm.controls) {
       const control = this.loginForm.get(loginControl);
       control.markAsTouched();
       if (control.errors) {
         for (const typeError in control.errors) {
-          const errorText = this.formError.find(x => x.name == loginControl).name;
+          const errorText = this.formError.find(x => x.name == loginControl).Text;
           if (typeError == 'required') {
-            this.ErrorArray.push(errorText + ' Required');
-
+            this.ErrorArray.push(errorText + this.Required);
+            this[control + 'Error'] = errorText + ' Required'
           }
         }
       }

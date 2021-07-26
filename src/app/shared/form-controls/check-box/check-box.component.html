@@ -6,8 +6,8 @@
   <div class="checkboxElement" *ngFor="let option of Options">
     <mat-checkbox color="primary" class="mat-check-margin" formControlName={{Name}} 
       [value]="option" (change)="checkBoxChange($event)">
-      <span style="padding: 20px;"> {{option}} </span>
+      {{option}} 
+      <mat-error *ngIf="error" >{{error}}</mat-error>
     </mat-checkbox>
   </div>
-  <mat-error *ngIf="error">{{error}}</mat-error>
 </form>

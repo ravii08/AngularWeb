@@ -17,7 +17,7 @@ export class ChipComponent  {
   @Input() parentFormGroup: FormGroup;
   @Input() Name: string;
   @Input() label: string;
-  @Input() error: string;
+  @Input() error?: string;
   addOnBlur = true;
   removable = true;
 

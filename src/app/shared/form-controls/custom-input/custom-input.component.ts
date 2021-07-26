@@ -21,11 +21,11 @@ import {
 })
 export class CustomInputComponent  {
   @Input() label: string;
-  @Input() type: 'text' | 'email' | 'password';
+  @Input() type: string;
   @Input() parentFormGroup: FormGroup;
   @Input() fieldName: string;
   @Input() Name: string;
-  @Input() error?: string;
+  @Input() error: string;
   @Input() Required? = false;
 
   public value: any;

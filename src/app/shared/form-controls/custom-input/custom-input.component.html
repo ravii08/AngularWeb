@@ -7,7 +7,7 @@
       <input label
         attr.aria-label="{{label}}"
         role="textbox"
-        [required]="Required"
+        [required]="Required? 'true' : null"
         matInput
         [type]="type"
         [id]="fieldName"
