@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FileterDataPipe implements PipeTransform {
 
   transform(object:any[], searchText: string): any[] {
-    if(!object) {return []}
     if(!searchText) {return object}
     searchText = searchText.toLowerCase();
     return object.filter((obj: any) => {
