@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-drop-down',
@@ -18,11 +20,18 @@ export class DropDownComponent implements OnInit {
   @Input() id: string = 'id';
   @Input() fieldName: string;
 
-  @Input() dropDownData: string;
+  @Output() callBackOnSelect: any = new EventEmitter<string>();
+
+  searchText: any  = '';
+
+  @Input() dropDownData: any;
   
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSelectionChange(selectedValue: any) : void {
+    this.callBackOnSelect.emit(selectedValue)
+  }
 }

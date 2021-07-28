@@ -2,12 +2,12 @@
   <span class="required" *ngIf="isRequired">*</span>
   <label attr.aria-label={{label}}>{{label}}</label>
 </div>
-<form class="check-box" [formGroup]="parentFormGroup">
+<form class="check-box" [formGroup]="parentFormGroup" >
   <div class="checkboxElement" *ngFor="let option of Options">
-    <mat-checkbox color="primary" class="mat-check-margin" formControlName={{Name}} 
+    <mat-checkbox color="primary" class="mat-check-margin" attr.aria-label="{{label}}"  formControlName={{Name}} 
       [value]="option" (change)="checkBoxChange($event)">
-      {{option}} 
-      <mat-error *ngIf="error" >{{error}}</mat-error>
+      <span style="padding: 20px;"> {{option}} </span>
     </mat-checkbox>
   </div>
+  <mat-error *ngIf="error">{{error}}</mat-error>
 </form>

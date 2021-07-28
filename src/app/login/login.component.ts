@@ -7,6 +7,7 @@ import { AuthenticationService } from '../shared/services/authentication.service
 import { StateService } from '../shared/services/state.service';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,8 +22,10 @@ export class LoginComponent implements OnInit {
   username = 'Username';
   password = 'Password';
   Required = ' Required';
-  nameError: string;
-  passwordError: string;
+  UsernameError:string;
+  PasswordError:string;
+  
+  
 
  
 
@@ -72,7 +75,7 @@ export class LoginComponent implements OnInit {
   }
 
   ValidateFields() {
-    const error = '';
+    
     this.ErrorArray = [];
     for (const loginControl in this.loginForm.controls) {
       const control = this.loginForm.get(loginControl);
@@ -82,7 +85,7 @@ export class LoginComponent implements OnInit {
           const errorText = this.formError.find(x => x.name == loginControl).Text;
           if (typeError == 'required') {
             this.ErrorArray.push(errorText + this.Required);
-            this[control + 'Error'] = errorText + ' Required'
+            this[loginControl + 'Error'] = errorText + this.Required
           }
         }
       }

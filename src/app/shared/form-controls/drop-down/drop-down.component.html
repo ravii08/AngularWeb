@@ -3,12 +3,15 @@
 </div>
 <mat-form-field [formGroup]=parentFormGroup appearance="outline">
     <mat-select placeholder="Select" formControlName={{Name}} [required]="Required">
-        <mat-select-filter [array]="dropDownData" 
-            [displayMember]="'value'"  
-           (filteredReturn)="dropDownData =$event">
-        </mat-select-filter>
+        <mat-option>
+            <ngx-mat-select-search  aria-label="search" [placeholderLabel]="'Search...'" 
+            [noEntriesFoundLabel]="'Not Found'" 
+            [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
+            </ngx-mat-select-search>
+            
+        </mat-option>
         <mat-option>--RESET--</mat-option>
-        <mat-option *ngFor="let item of dropDownData" [value]="item">
+        <mat-option *ngFor="let item of dropDownData | fileterData: searchText " [value]="item">
             {{item}}
         </mat-option>
     </mat-select>

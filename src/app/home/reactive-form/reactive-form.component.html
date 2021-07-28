@@ -4,40 +4,45 @@
         <h1 align="center">Reactive Form</h1>
         <div>
             <app-custom-input [parentFormGroup]="ReactiveForm"  [Name]="username" type="text"
-                [Required]=true [label]="userNameLabel" aria-label="Username" [error]="nameError">
+                [Required]=true [label]="userNameLabel" aria-label="Username" [placeholderValue]="usernamePlaceholder" [error]="UsernameError">
             </app-custom-input>
         </div>
-        
-        <div>
-            <app-check-box [Options]="checkedData" [parentFormGroup]="ReactiveForm" [Name]="checkValue"
-                (valueSelectionChanged)="okcheckBoxChange($event)" [error]="checkError" [label]="checkLabel">
-            </app-check-box>
-        </div>
+
         <div style="margin-top: 10px;"></div>
         <div>
-            <app-drop-down [parentFormGroup]="ReactiveForm" [error]="dropDownError" [Name]="dropDownValue" [label]="dropDownLabel"
-                [dropDownData]="dropDownData">
+            <app-drop-down [parentFormGroup]="ReactiveForm"  [error]="dropDownError" [Name]="dropDownValue" [label]="dropDownLabel"
+                [dropDownData]="dropDownData" >
             </app-drop-down>
         </div>
         
+       
+        <div style="margin-top: 10px;"></div>
         <div>
-            <app-radio-box [parentFormGroup]="ReactiveForm" [Name]="radioButtonValue" type='radio' [Options]="radioButtonData" 
-                (valueSelectionChanged)="onRadioChange($event)" [error]="radioButtonError" [label]="radioButtonLabel">
+            <app-date-picker [parentFormGroup]="ReactiveForm" [error]="JoiningDateError" (onClick)="functioncall($event)" [Name]="dateValue"
+                [label]="dateLabel"></app-date-picker>
+        </div>
+        <div>
+            <app-chip [parentFormGroup]="ReactiveForm" [Name]="chipValue" [error]="chipError" [label]="chipLabel"></app-chip>
+        </div>
+        <div style="margin-top: 10px;"></div>
+        <div>
+            <app-radio-box [parentFormGroup]="ReactiveForm" [Name]="radioButtonValue"  [Options]="radioButtonData" 
+                (valueSelectionChanged)="onRadioChange($event)"  [label]="radioButtonLabel">
             </app-radio-box>
         </div>
         <div style="margin-top: 10px;"></div>
         <div>
-            <app-date-picker [parentFormGroup]="ReactiveForm" [error]="dateError" (onClick)="functioncall($event)" [Name]="dateValue"
-                [label]="dateLabel"></app-date-picker>
-        </div>
-        <div>
-            <app-chip [parentFormGroup]="ReactiveForm" [Name]="chipValue"  [label]="chipLabel"></app-chip>
+            <app-check-box [Options]="checkedData" [parentFormGroup]="ReactiveForm" [Name]="checkValue"
+                (valueSelectionChanged)="okcheckBoxChange($event)"  [label]="checkLabel">
+            </app-check-box>
         </div>
 
         <div align="center">
-            <button mat-button color="primary" style="background-color: cornflowerblue;">Primary</button>
+            <button mat-raised-button color="primary" class="btn">Primary</button>
         </div>
     </div>
    
 </form>
+
+
 

@@ -30,6 +30,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
+import { FileterDataPipe } from './pipes/fileter-data.pipe';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MatDividerModule } from '@angular/material/divider';
     RadioBoxComponent,
     DialogBoxComponent,
     DropDownComponent,
-    ChipComponent
+    ChipComponent,
+    FileterDataPipe
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { DialogBoxComponent } from 'src/app/shared/components/dialog-box/dialog-
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { StateService } from 'src/app/shared/services/state.service';
 
+
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
@@ -19,7 +20,8 @@ export class ReactiveFormComponent implements OnInit {
 
   userNameLabel = "UserName";
   username = 'Username';
-  nameError: string;
+  UsernameError: string;
+  usernamePlaceholder = "Enter Username"
 
   checkValue = "check";
   checkLabel = "checkBox";
@@ -29,30 +31,28 @@ export class ReactiveFormComponent implements OnInit {
   dropDownValue = "dropDown";
   dropDownLabel = "DropDown";
   dropDownError :string;
-  dropDownData:any = [];
+  dropDownData = [];
+  dropDownArray = []
 
   radioButtonValue = "RadioButton"
   radioButtonLabel = "Gender";
-  radioButtonError :string;
+  RadioButtonError :string;
   radioButtonData:any = [];
 
   dateValue = "JoiningDate";
   dateLabel = "Select Date";
-  dateError :string;
+  JoiningDateError :string;
   date: any;
 
   chipValue = "chip";
-  chipLabel = "Chip Label";
+  chipLabel = "Chip";
   chipError: string;
   alFieldError = [];
 
 
   formError = [{ name: this.username, Text: this.userNameLabel },
-    {name: this.checkValue, Text: this.checkLabel},
     {name: this.dropDownValue, Text: this.dropDownLabel},
-    {name: this.radioButtonValue, Text: this.radioButtonLabel},
     {name: this.dateValue, Text: this.dateLabel},
-    {name: this.dateValue, Text: this.chipLabel}
     ];
 
     
@@ -62,11 +62,11 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {
     this.ReactiveForm = this.userLoginForm.group({
       Username: ['', Validators.required],
-      check: ['',Validators.required],
       dropDown: ['',Validators.required],
-      RadioButton: ['',Validators.required],
       JoiningDate: ['',Validators.required],
-      chip: ['']
+      chip: [''],
+      RadioButton: [''],
+      check: ['']
     });
     this.dropDown();
     this.checkBox();
@@ -98,15 +98,19 @@ export class ReactiveFormComponent implements OnInit {
  
   okcheckBoxChange(event) {
     
-    console.log(event)
+    this.checkValue = event
   }
 
   dropDown() {
     this.Service.getDropDownData().subscribe(x => {
      for(let data of x){
-       this.dropDownData.push(data.value)
+       this.dropDownData.push(data.name)
      }
     })
+  }
+
+  dropOnSelect(selectedValue:any) {
+    this.dropDownData = selectedValue.value
   }
 
   checkBox() {
@@ -117,7 +121,7 @@ export class ReactiveFormComponent implements OnInit {
     })
   }
   onRadioChange(event) {
-    console.log(event)
+    this.radioButtonValue = event
   }
 
   radioButton() {
@@ -145,7 +149,7 @@ ValidateFields() {
         const errorText = this.formError.find(x => x.name == loginControl).Text;
         if (typeError == 'required') {
           this.ErrorArray.push(errorText + this.Required);
-          
+          this[loginControl + 'Error'] = errorText + this.Required
         }
       }
     }

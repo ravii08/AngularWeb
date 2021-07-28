@@ -1,47 +1,10 @@
-/* @media (min-width: 250px) {
-   
-} */
 
-/* body {
-    margin: 0px;
-    overflow: hidden;
-   
-  }
-  svg {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
   
-  .country{
-    
-    stroke: black;
-    stroke-width: 0.3;
-  }
-  
-  .country:hover{
-    fill: orange;
-  }
-  .tick text {
-    font-size: 1em;
-    fill: black;
-    font-family: sans-serif;
-  }
-  
-  .tick circle {
-    stroke: black;
-    stroke-opacity: 0.5;
-  } */
+  html, body { height: 100%; }
+body { position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);}
 
-  svg {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .country {
-    fill: #ccc;
-    stroke: #999;
-  }
+
   

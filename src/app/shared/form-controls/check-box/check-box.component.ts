@@ -34,7 +34,7 @@ export class CheckBoxComponent implements OnInit {
   }
 
   checkBoxChange(value:any) {
- this.valueSelectionChanged.emit(value)
+ this.valueSelectionChanged.emit(value.source.value)
 
   }
 

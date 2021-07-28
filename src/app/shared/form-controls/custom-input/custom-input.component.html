@@ -13,8 +13,9 @@
         [id]="fieldName"
         name={{fieldName}}
         formControlName={{Name}}
+        placeholder={{placeholderValue}}
       />
-      <mat-error *ngIf=error>{{error}}</mat-error>
+      <mat-error *ngIf="error">{{error}}</mat-error>
     </mat-form-field>
   </div>
   

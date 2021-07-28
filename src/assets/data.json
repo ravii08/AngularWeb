@@ -1,16 +1,16 @@
 {
     "Users": [
-        { "id": 1, "value": "AAA" },
-        { "id": 2, "value": "AAB" },
-        { "id": 3, "value": "AAC" },
-        { "id": 4, "value": "AAD" },
-        { "id": 5, "value": "AAE" },
-        { "id": 6, "value": "AAF" },
-        { "id": 7, "value": "AAG" },
-        { "id": 8, "value": "AAH" },
-        { "id": 9, "value": "AAI" },
-        { "id": 10, "value": "AAJ" },
-        { "id": 11, "value": "AAK" }
+        { "id": 1, "name": "AAA" },
+        { "id": 2, "name": "AAB" },
+        { "id": 3, "name": "AAC" },
+        { "id": 4, "name": "AAD" },
+        { "id": 5, "name": "AAE" },
+        { "id": 6, "name": "AAF" },
+        { "id": 7, "name": "AAG" },
+        { "id": 8, "name": "AAH" },
+        { "id": 9, "name": "AAI" },
+        { "id": 10, "name": "AAJ" },
+        { "id": 11, "name": "AAK" }
     ],
     "CheckBox": [
         

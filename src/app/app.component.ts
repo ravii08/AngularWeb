@@ -13,14 +13,7 @@ import { CommonService } from './shared/services/common.service';
 export class AppComponent implements OnInit {
   
   navDetail: boolean  
-  public variables = ['One','Two','County', 'Three', 'Zebra', 'XiOn'];
-  public variables2 = [{ name: 'One' }, { id: 1, name: 'Two' }];
-
-  public filteredList1 = this.variables.slice();
-  // public filteredList2 = this.variables.slice();
-  // public filteredList3 = this.variables.slice();
-  // public filteredList4 = this.variables.slice();
-  // public filteredList5 = this.variables2.slice();
+  
 
   constructor(public authService: AuthenticationService, public commonService: CommonService){}
 

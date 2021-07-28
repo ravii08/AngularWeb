@@ -1,1 +1,44 @@
-<p>template-form works!</p>
+<!-- <form #someform="ngForm" >
+    <div class="formsection">
+
+        <h1 align="center">Reactive Form</h1>
+        <div>
+            <app-custom-input ngModel type="text"
+                [Required]=true [label]="userNameLabel" aria-label="Username" [error]="userNameLabel + Required">
+            </app-custom-input>
+        </div>
+        
+        <div>
+            <app-check-box [Options]="checkedData" 
+                (valueSelectionChanged)="okcheckBoxChange($event)" ngMoodel [error]="checkError" [label]="checkLabel">
+            </app-check-box>
+        </div>
+        <div style="margin-top: 10px;"></div>
+        <div>
+            <app-drop-down  [error]="dropDownLabel + Required" ngModel [label]="dropDownLabel"
+                [dropDownData]="dropDownData" >
+            </app-drop-down>
+        </div>
+        
+        <div>
+            <app-radio-box [parentFormGroup]="ReactiveForm" [Name]="radioButtonValue" type='radio' [Options]="radioButtonData" 
+                (valueSelectionChanged)="onRadioChange($event)" [error]="radioButtonError" [label]="radioButtonLabel">
+            </app-radio-box>
+        </div>
+        <div style="margin-top: 10px;"></div>
+        <div>
+            <app-date-picker ngMoodel [error]="dateLabel + Required" (onClick)="functioncall($event)" =
+                [label]="dateLabel"></app-date-picker>
+        </div>
+        <div>
+            <app-chip ngMoodel  [label]="chipLabel"></app-chip>
+        </div>
+
+        <div align="center">
+            <button mat-button color="primary" style="background-color: cornflowerblue;">Primary</button>
+        </div>
+    </div>
+   
+</form>
+
+ -->

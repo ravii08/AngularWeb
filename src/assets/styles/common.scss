@@ -2,5 +2,48 @@
     padding: 0 25vw;
    
 }
+
+.mat-form-field-flex:focus-within .mat-form-field-outline{
+    border-radius: 6px;
+    outline: cyan 3px solid;
+    outline-offset: -1px;
+}
+
+.mat-form-field-outline-thick{
+    color: #ededed !important;
+    border-width: thick !important;
+}
+
+.btn:focus{
+    outline: cyan 3px solid;
+    outline-offset: 1px;
+}
+
+
+.country{
+ 
+    stroke: black;
+    stroke-width: 0.3;
+    cursor: pointer;
+  }
+  
+  .country:hover{
+    fill: orange;
+    transform: scale(1.01);
+  }
+  
+  .tick text {
+    font-size: 1em;
+    fill: black;
+    font-family: sans-serif;
+  }
+  
+  .tick circle {
+    stroke: black;
+    stroke-opacity: 0.5;
+  }
+  .tick{
+    cursor: pointer;
+  }
  
 

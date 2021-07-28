@@ -2,11 +2,12 @@
     display:  flex; justify-content: space-evenly;flex-wrap: wrap;
 }
 .card {
-    width: 120px;height: 80px; background-color: gainsboro;
+    width: 120px;height: 80px; background-color: lightgrey;
 }
 
 .card:hover {
-    background-color: skyblue;
+    
+    transform: scale(1.1);
 }
 
 @media (max-width: 959px) {

@@ -5,6 +5,17 @@ html, body { height: 100%; }
 body { margin: 0; background-color: ghostwhite; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
-mat-form-field {
-    width: 100%;
+.svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
+
+ 
+
+
+
+
+
+  
