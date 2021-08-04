@@ -1,44 +1,61 @@
-<!-- <form #someform="ngForm" >
-    <div class="formsection">
-
-        <h1 align="center">Reactive Form</h1>
-        <div>
-            <app-custom-input ngModel type="text"
-                [Required]=true [label]="userNameLabel" aria-label="Username" [error]="userNameLabel + Required">
-            </app-custom-input>
-        </div>
-        
-        <div>
-            <app-check-box [Options]="checkedData" 
-                (valueSelectionChanged)="okcheckBoxChange($event)" ngMoodel [error]="checkError" [label]="checkLabel">
-            </app-check-box>
-        </div>
-        <div style="margin-top: 10px;"></div>
-        <div>
-            <app-drop-down  [error]="dropDownLabel + Required" ngModel [label]="dropDownLabel"
-                [dropDownData]="dropDownData" >
-            </app-drop-down>
-        </div>
-        
-        <div>
-            <app-radio-box [parentFormGroup]="ReactiveForm" [Name]="radioButtonValue" type='radio' [Options]="radioButtonData" 
-                (valueSelectionChanged)="onRadioChange($event)" [error]="radioButtonError" [label]="radioButtonLabel">
-            </app-radio-box>
-        </div>
-        <div style="margin-top: 10px;"></div>
-        <div>
-            <app-date-picker ngMoodel [error]="dateLabel + Required" (onClick)="functioncall($event)" =
-                [label]="dateLabel"></app-date-picker>
-        </div>
-        <div>
-            <app-chip ngMoodel  [label]="chipLabel"></app-chip>
-        </div>
-
-        <div align="center">
-            <button mat-button color="primary" style="background-color: cornflowerblue;">Primary</button>
-        </div>
-    </div>
-   
-</form>
-
- -->
+<form #myForm="ngForm" (ngSubmit)="submit()">
+    <mat-card class="template">
+      <mat-card-title class="mat-card-header">Template Driven Form</mat-card-title>
+      <mat-card-content>
+        <mat-form-field class="field-card" appearance="outline">
+          <input matInput placeholder="Name" [(ngModel)]="formData.userName" name="userName" required>
+          <mat-error>Name is required</mat-error>
+        </mat-form-field><br>
+  
+        <mat-form-field class="field-card" appearance="outline">
+          <input matInput placeholder="Employee ID" [(ngModel)]="formData.empId" name="empId" required>
+          <mat-error>Employee Id is required</mat-error>
+        </mat-form-field><br>
+  
+        <mat-form-field class="field-card" appearance="outline">
+          <input type="email" matInput placeholder="Email ID" [(ngModel)]="formData.emailId" name="email" ngModel
+            [email]="true" required>
+          <mat-error >Email Id is required</mat-error>
+        </mat-form-field><br>
+  
+        <mat-form-field class="field-card" appearance="outline">
+          <mat-label>Select Designation</mat-label>
+          <mat-select [(ngModel)]="formData.dropDown" name="dropDown" required>
+            <mat-option [value]="">Select Designation</mat-option>
+            <mat-option *ngFor="let des of designations" [value]="des.value">
+              {{des.value}}
+            </mat-option>
+          </mat-select>
+          <mat-error>Designation is required</mat-error>
+        </mat-form-field>
+  
+        <div class="field-card" [ngClass]="{'mat-form-field-invalid':myForm.submitted && !formData.radioButton}">
+          <mat-label>Gender</mat-label> &nbsp;
+          <mat-radio-group [(ngModel)]="formData.radioButton" name="radioButton" required>
+            <mat-radio-button value="male">Male</mat-radio-button> &nbsp;
+            <mat-radio-button value="female">Female</mat-radio-button>
+  
+          </mat-radio-group>
+  
+        </div><br>
+        <mat-form-field class="field-card" appearance="fill">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="formData.joiningDate" name="joiningDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+  
+      
+  
+        <mat-card-actions class="mat-card-header">
+          <div>
+            <button mat-flat-button color="primary" type="submit"
+            >Submit</button>
+          </div>
+        </mat-card-actions>
+  
+      </mat-card-content>
+    </mat-card>
+  
+  </form>
+  

@@ -4,7 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CustomInputComponent } from './custom-input.component';
+import { CustomInputComponent } from './text-input.component';
 
 describe('CustomInputComponent', () => {
   let component: CustomInputComponent;

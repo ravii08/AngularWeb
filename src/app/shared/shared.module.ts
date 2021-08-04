@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedRoutingModule } from './shared-routing.module';
-import { CustomInputComponent } from './form-controls/custom-input/custom-input.component';
+import { TextInputComponent } from './form-controls/text-input/text-input.component';
 import { DatePickerComponent } from './form-controls/date-picker/date-picker.component';
 import { CheckBoxComponent } from './form-controls/check-box/check-box.component';
 import { RadioBoxComponent } from './form-controls/radio-box/radio-box.component';
@@ -35,7 +35,7 @@ import { FileterDataPipe } from './pipes/fileter-data.pipe';
 
 @NgModule({
   declarations: [
-    CustomInputComponent,
+    TextInputComponent,
     DatePickerComponent,
     CheckBoxComponent,
     RadioBoxComponent,
@@ -73,7 +73,7 @@ import { FileterDataPipe } from './pipes/fileter-data.pipe';
   ],
 
   exports: [
-    CustomInputComponent,
+    TextInputComponent,
     DatePickerComponent,
     CheckBoxComponent,
     RadioBoxComponent,

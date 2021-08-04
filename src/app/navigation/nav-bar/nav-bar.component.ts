@@ -5,15 +5,14 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
-import { AuthenticationService } from 'src/app/shared/services/authentication.service';
-import { CommonService } from '../../shared/services/common.service';
-// import { shareReplay } from 'rxjs/operators/shareReplay';
-import { StateService } from '../../shared/services/state.service';
+import { AuthenticationService } from '@services/authentication.service';
+import { CommonService } from '@services/common.service';
+import { StateService } from '@services/state.service';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
 

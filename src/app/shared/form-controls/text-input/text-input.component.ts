@@ -3,10 +3,11 @@ import { FormGroup } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-custom-input',
-  templateUrl: './custom-input.component.html',
+  selector: 'app-text-input',
+  templateUrl: './text-input.component.html',
+  styleUrls: ['./text-input.component.scss']
 })
-export class CustomInputComponent  {
+export class TextInputComponent  {
   @Input() label: string;
 
   @Input() type: string;

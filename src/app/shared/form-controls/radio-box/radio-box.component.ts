@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-radio-box',
   templateUrl: './radio-box.component.html',
-  styleUrls: ['./radio-box.component.css']
+  styleUrls: ['./radio-box.component.scss']
 })
 export class RadioBoxComponent implements OnInit {
 

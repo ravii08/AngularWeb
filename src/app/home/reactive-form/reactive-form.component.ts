@@ -2,25 +2,27 @@ import { C, V } from '@angular/cdk/keycodes';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogBoxComponent } from 'src/app/shared/components/dialog-box/dialog-box.component';
-import { AuthenticationService } from 'src/app/shared/services/authentication.service';
-import { StateService } from 'src/app/shared/services/state.service';
+import { DialogBoxComponent } from '@components/dialog-box/dialog-box.component';
+import { DataModelService } from '@model/model/data-model.service';
+import { ApiHandlerService } from '@services/api-handler.service';
+import { AuthenticationService } from '@services/authentication.service';
+import { StateService } from '@services/state.service';
 
 
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
-  styleUrls: ['./reactive-form.component.css']
+  styleUrls: ['./reactive-form.component.scss']
 })
 export class ReactiveFormComponent implements OnInit {
 
-  public ReactiveForm: FormGroup;
+  public userForm: FormGroup;
   ErrorArray: any= [] ;
   Required = ' Required';
 
-  userNameLabel = "UserName";
-  username = 'Username';
-  UsernameError: string;
+  userNameLabel = "userName";
+  username = 'userName';
+  userNameError: string;
   usernamePlaceholder = "Enter Username"
 
   checkValue = "check";
@@ -29,24 +31,25 @@ export class ReactiveFormComponent implements OnInit {
   checkedData:any = [];
 
   dropDownValue = "dropDown";
-  dropDownLabel = "DropDown";
+  dropDownLabel = "dropDown";
   dropDownError :string;
   dropDownData = [];
-  dropDownArray = []
+  
 
-  radioButtonValue = "RadioButton"
+  radioButtonValue = "radioButton"
   radioButtonLabel = "Gender";
   RadioButtonError :string;
   radioButtonData:any = [];
 
-  dateValue = "JoiningDate";
+  dateValue = "joiningDate";
   dateLabel = "Select Date";
-  JoiningDateError :string;
+  joiningDateError :string;
   date: any;
 
   chipValue = "chip";
   chipLabel = "Chip";
   chipError: string;
+  chipPlaceholder = "Select chip"
   alFieldError = [];
 
 
@@ -56,16 +59,16 @@ export class ReactiveFormComponent implements OnInit {
     ];
 
     
-  constructor(public userLoginForm: FormBuilder, public Service: AuthenticationService, public dialog: MatDialog,
-    public stateService: StateService) { }
+  constructor(public userLoginForm: FormBuilder, public service: AuthenticationService, public dialog: MatDialog,
+    public stateService: StateService, public apiHandlerService: ApiHandlerService, public dataModel: DataModelService) { }
 
   ngOnInit() {
-    this.ReactiveForm = this.userLoginForm.group({
-      Username: ['', Validators.required],
+    this.userForm = this.userLoginForm.group({
+      userName: ['', Validators.required],
       dropDown: ['',Validators.required],
-      JoiningDate: ['',Validators.required],
+      joiningDate: [new Date(),Validators.required],
       chip: [''],
-      RadioButton: [''],
+      radioButton: [''],
       check: ['']
     });
     this.dropDown();
@@ -77,7 +80,7 @@ export class ReactiveFormComponent implements OnInit {
   submit() {
    
    this.ValidateFields();
-   if(this.ReactiveForm.invalid){
+   if(this.userForm.invalid){
     const dialogRef = this.dialog.open(DialogBoxComponent, {
       data: { message: this.ErrorArray , type: this.stateService.ErrorType }
     });
@@ -87,8 +90,8 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   validateForm() {
-    let data = this.ReactiveForm
-    if(this.ReactiveForm.valid) {
+    let data = this.userForm
+    if(this.userForm.valid) {
       const dialogRef = this.dialog.open(DialogBoxComponent, {
         width: '400px',
         data: { message: data.value, type: this.stateService.FormType }
@@ -102,10 +105,16 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   dropDown() {
-    this.Service.getDropDownData().subscribe(x => {
-     for(let data of x){
-       this.dropDownData.push(data.name)
-     }
+    // this.apiHandlerService.getAPICall(this.service.dropDownDataUrl).subscribe(x => {
+    //   for(let data of x) {
+    //     this.dropDownData.push(data.name)
+    //   }
+    // })
+
+    this.dataModel.dropDown().subscribe(x => {
+      for(let data of x) {
+        this.dropDownData.push(data.name)
+      }
     })
   }
 
@@ -114,8 +123,14 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   checkBox() {
-    this.Service.getCheckBoxData().subscribe(x => {
-      for(let data of x){
+    // this.apiHandlerService.getAPICall(this.service.checkBoxDataUrl).subscribe(x => {
+    //   for(let data of x) {
+    //     this.checkedData.push(data.value)
+    //   }
+    //  })
+
+    this.dataModel.checkBox().subscribe(x => {
+      for(let data of x) {
         this.checkedData.push(data.value)
       }
     })
@@ -125,8 +140,14 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   radioButton() {
-    this.Service.getRadioButtonData().subscribe(x => {
-      for(let data of x){
+    // this.apiHandlerService.getAPICall(this.service.radioButtonDataUrl).subscribe(x => {
+    //   for(let data of x) {
+    //     this.radioButtonData.push(data.value)
+    //   }
+    // })
+
+    this.dataModel.radioButton().subscribe(x => {
+      for(let data of x) {
         this.radioButtonData.push(data.value)
       }
     })
@@ -141,8 +162,8 @@ export class ReactiveFormComponent implements OnInit {
 ValidateFields() {
   
   this.ErrorArray = [];
-  for (const loginControl in this.ReactiveForm.controls) {
-    const control = this.ReactiveForm.get(loginControl);
+  for (const loginControl in this.userForm.controls) {
+    const control = this.userForm.get(loginControl);
     control.markAsTouched();
     if (control.errors) {
       for (const typeError in control.errors) {

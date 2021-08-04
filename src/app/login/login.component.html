@@ -3,10 +3,10 @@
     <mat-card class="example-card">
       <mat-card-title class="mat-card-header">Login</mat-card-title>
       <mat-card-content>
-        <app-custom-input  [parentFormGroup]="loginForm" [fieldName]="username" [Name]="username" type="text" [Required]=true
-          [label]="userNameLabel" aria-label="Username"  [error]="UsernameError"></app-custom-input>
-        <app-custom-input [parentFormGroup]="loginForm" [fieldName]="password" [Name]="password" type="password" [Required]=true
-          [label]="PasswordLabel" aria-label="Password" role="textbox" [error]="PasswordError" ></app-custom-input>
+        <app-text-input  [parentFormGroup]="loginForm" [fieldName]="userName" [Name]="userName" type="text" [Required]=true
+          [label]="userNameLabel"  [error]="userNameError"></app-text-input>
+        <app-text-input [parentFormGroup]="loginForm" [fieldName]="password" [Name]="password" type="password" [Required]=true
+          [label]="passwordLabel" role="textbox" [error]="passwordError" ></app-text-input>
       </mat-card-content>
       <mat-card-actions align="center">
         <button mat-raised-button type="submit" class="btn"  role="button" aria-label="Login" color="primary" > Login </button>

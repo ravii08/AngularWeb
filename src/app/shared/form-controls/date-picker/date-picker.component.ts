@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.css']
+  styleUrls: ['./date-picker.component.scss']
 })
 export class DatePickerComponent implements OnInit {
   @Input() parentFormGroup: FormGroup;
@@ -19,6 +19,8 @@ export class DatePickerComponent implements OnInit {
 
   @Input() Required? = false;
 
+  @Input() placeholderValue: string;
+
   @Output() onClick = new EventEmitter();
 
   constructor() { }
@@ -29,5 +31,6 @@ export class DatePickerComponent implements OnInit {
     this.onClick.emit(dateObject);
   }
 
+  
 
 }

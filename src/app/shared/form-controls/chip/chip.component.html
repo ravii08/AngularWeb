@@ -14,11 +14,12 @@
       selected="true"
       (removed)="remove(fruit)">
       {{fruit}}
-      <mat-icon matChipRemove aria-label="remove" *ngIf="removable">cancel</mat-icon>
+      <mat-icon matChipRemove aria-label="remove" role="button" *ngIf="removable">cancel</mat-icon>
     </mat-chip>
     <input
+      attr.aria-label="{{label}}"
       aria-label="Enter chip"
-      placeholder="Select fruit" #fruitInput 
+      placeholder={{placeholderValue}} #fruitInput 
       formControlName={{Name}}
       [matAutocomplete]="auto"
       [matChipInputFor]="chipList"

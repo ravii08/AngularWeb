@@ -2,49 +2,51 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DialogBoxComponent } from '../shared/components/dialog-box/dialog-box.component';
-import { AuthenticationService } from '../shared/services/authentication.service';
-import { StateService } from '../shared/services/state.service';
+import { DialogBoxComponent } from '@components/dialog-box/dialog-box.component';
+import { DataModelService } from '@model/model/data-model.service';
+import { ApiHandlerService } from '@services/api-handler.service';
+import { AuthenticationService } from '@services/authentication.service';
+import { StateService } from '@services/state.service';
 
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   submitted = false;
   ErrorArray: any;
-  userNameLabel = "UserName";
-  PasswordLabel = "Password"
-  username = 'Username';
-  password = 'Password';
-  Required = ' Required';
-  UsernameError:string;
-  PasswordError:string;
+  userNameLabel = "userName";
+  passwordLabel = "password";
+  userName = 'userName';
+  password = 'password';
+  required = ' Required';
+  userNameError:string;
+  passwordError:string;
   
   
 
  
 
   
-  formError = [{ name: this.username, Text: this.userNameLabel },
-  { name: this.password, Text: this.PasswordLabel }];
+  formError = [{ name: this.userName, Text: this.userNameLabel },
+  { name: this.password, Text: this.passwordLabel }];
   userData: any;
    
   ngOnInit() {
     this.loginForm = this.userLoginForm.group({
-      Username: ['', Validators.required],
-      Password: ['', Validators.required],
+      userName: ['', Validators.required],
+      password: ['', Validators.required],
     });
 
   }
 
   constructor(
-    private _auth: AuthenticationService, private _router: Router, public userLoginForm: FormBuilder, public dialog: MatDialog,
-    public stateService: StateService) { }
+    private service: AuthenticationService, private _router: Router, public userLoginForm: FormBuilder, public dialog: MatDialog,
+    public stateService: StateService, public apiHandlerService: ApiHandlerService, public datModel: DataModelService) { }
 
   login() {
     this.ValidateFields();
@@ -58,19 +60,22 @@ export class LoginComponent implements OnInit {
   }
 
   validateUser() {
-    if (this.loginForm.get('Username').value == 'admin' && this.loginForm.get('Password').value == 'admin123') {
-      this._auth.getTokenData().subscribe(res => {
-        this.postLogin(res)
-      });
+    if (this.loginForm.get('userName').value == 'admin' && this.loginForm.get('password').value == 'admin123') {
+    //  this.apiHandlerService.getAPICall(this.service.TokenUrl).subscribe(x => {
+    //    this.postLogin(x);
+    //  })
+    this.datModel.tokenData().subscribe(x => {
+      this.postLogin(x)
+    })
     }
   }
 
-  postLogin(Response: any) {
-    this._auth.login();
-    sessionStorage.setItem('token', Response[0].token);
-    sessionStorage.setItem('userName', Response[0].userName);
-    sessionStorage.setItem('userRole', Response[0].userRole);
-    sessionStorage.setItem('userID', Response[0].userId)
+  postLogin(response: any) {
+    this.service.login();
+    sessionStorage.setItem('token', response[0].token);
+    sessionStorage.setItem('userName', response[0].userName);
+    sessionStorage.setItem('userRole', response[0].userRole);
+    sessionStorage.setItem('userID', response[0].userId)
 
   }
 
@@ -84,8 +89,8 @@ export class LoginComponent implements OnInit {
         for (const typeError in control.errors) {
           const errorText = this.formError.find(x => x.name == loginControl).Text;
           if (typeError == 'required') {
-            this.ErrorArray.push(errorText + this.Required);
-            this[loginControl + 'Error'] = errorText + this.Required
+            this.ErrorArray.push(errorText + this.required);
+            this[loginControl + 'Error'] = errorText + this.required
           }
         }
       }

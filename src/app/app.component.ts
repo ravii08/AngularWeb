@@ -1,9 +1,9 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { Observable } from 'rxjs';
-import { AuthenticationService } from './shared/services/authentication.service';
+import { AuthenticationService } from '@app/shared/services/authentication.service';
 import { Router } from '@angular/router';
-import { CommonService } from './shared/services/common.service';
+import { CommonService } from '@app/shared/services/common.service';
 
 @Component({
   selector: 'app-root',

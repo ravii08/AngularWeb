@@ -13,9 +13,9 @@ const headerOptions = {
 })
 export class AuthenticationService {
   isLoggedIn = false;
-  TokenUrl= 'http://localhost:3000/credentials';
+  // TokenUrl= 'http://localhost:3000/credentials';
 
-  chipUrl = 'https://jsonplaceholder.typicode.com/users';
+  // chipUrl = 'https://jsonplaceholder.typicode.com/users';
 
   dropDownDataUrl = 'http://localhost:4000/Users';
 
@@ -30,23 +30,23 @@ export class AuthenticationService {
   }
  
 
-  getTokenData() {
-    return this.http.get(this.TokenUrl, headerOptions);
-  }
+  // getTokenData() {
+  //   return this.http.get(this.TokenUrl, headerOptions);
+  // }
 
-  getChipData():Observable<any>  {
-    return this.http.get<any>(this.chipUrl, headerOptions)
-  }
+  // getChipData():Observable<any>  {
+  //   return this.http.get<any>(this.chipUrl, headerOptions)
+  // }
 
-  getDropDownData():Observable<any> {
-    return this.http.get<any>(this.dropDownDataUrl, headerOptions)
-  }
+  // getDropDownData():Observable<any> {
+  //   return this.http.get<any>(this.dropDownDataUrl, headerOptions)
+  // }
 
-  getCheckBoxData(): Observable<any>{
-    return this.http.get<any>(this.checkBoxDataUrl, headerOptions)
-  }
+  // getCheckBoxData(): Observable<any>{
+  //   return this.http.get<any>(this.checkBoxDataUrl, headerOptions)
+  // }
 
-  getRadioButtonData(): Observable<any>{
-    return this.http.get<any>(this.radioButtonDataUrl,headerOptions)
-  }
+  // getRadioButtonData(): Observable<any>{
+  //   return this.http.get<any>(this.radioButtonDataUrl,headerOptions)
+  // }
 }

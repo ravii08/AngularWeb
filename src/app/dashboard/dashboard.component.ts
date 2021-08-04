@@ -2,48 +2,43 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import * as d3 from 'd3';
 import { colorLegend } from './colorlegend';
-import { loadandprocessdata } from './loadandprocessdata';
 import { G } from '@angular/cdk/keycodes';
 import * as t from 'topojson';
 import { AuthenticationService } from '../shared/services/authentication.service';
 import { StateService } from '../shared/services/state.service';
+import { forkJoin } from 'rxjs';
 
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
 
-  
-
-//   constructor(private Service: AuthenticationService, public stateVariable: StateService) { }
-//  public ngOnInit() {
-//  }
-  
-
-private width: number;
-  private height: number;
   private svg: any;
   pathGenerator: any;
   data: any;
   objects: any;
-  stringObject: any;
+  countryObject: any;
   featureObj: any;
   stringFeature: string | undefined;
-  idobj: any;
+  rowObject: any;
+  width: number | undefined;
+  height: number | undefined;
 
 
   constructor() {
-    this.width = 1000
-    this.height = 650
+
   }
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.buildSvg();
   }
   private buildSvg() {
-    let projection = d3.geoMercator().scale(140)
+
+    this.width = window.innerWidth * 1.0;
+    this.height = window.innerHeight * 1.0
+    let projection = d3.geoNaturalEarth1().scale(140)
       .translate([this.width / 2, this.height / 2]);
     this.pathGenerator = d3.geoPath()
       .projection(projection);
@@ -54,20 +49,24 @@ private width: number;
       .attr('width', this.width)
       .attr('height', this.height);
 
+    this.svg.append('path')
+      .attr('class', 'sphere')
+      .attr('d', this.pathGenerator({ type: 'Sphere' }));
+
     const colorLegendG = this.svg.append('g')
-      .attr('transform', `translate(30,400)`);
-    
-    
-    Promise.all([
+      .attr('transform', `translate(260,350)`);
+
+    forkJoin([
       d3.tsv('https://unpkg.com/world-atlas@1.1.4/world/50m.tsv'),
       d3.json('https://unpkg.com/world-atlas@1.1.4/world/50m.json')
-    ]).then(([tsvData, topoJsondata]) => {
+    ]).subscribe(([tsvData, topoJsondata]) => {
 
       var idJson = JSON.stringify(tsvData);
-      this.idobj = JSON.parse(idJson);
+      this.rowObject = JSON.parse(idJson);
 
 
-      const rowById = this.idobj.reduce((accumulator: { [x: string]: any; }, d: { iso_n3: string | number; }) => {
+
+      const rowById = this.rowObject.reduce((accumulator: { [x: string]: any; }, d: { iso_n3: string | number; }) => {
         accumulator[d.iso_n3] = d;
         return accumulator;
       }, {});
@@ -75,8 +74,8 @@ private width: number;
 
 
       var stringJson = JSON.stringify(topoJsondata);
-      this.stringObject = JSON.parse(stringJson);
-      var countries = t.feature(this.stringObject, this.stringObject.objects.countries);
+      this.countryObject = JSON.parse(stringJson);
+      var countries = t.feature(this.countryObject, this.countryObject.objects.countries);
       this.stringFeature = JSON.stringify(countries);
       this.featureObj = JSON.parse(this.stringFeature);
       this.featureObj.features.forEach((d: { properties: any; id: string | number; }) => {
@@ -91,22 +90,38 @@ private width: number;
         .range(d3.schemeSpectral[colorScale.domain().length]);
       colorLegendG.call(colorLegend, {
         colorScale,
-        circleRadius: 8,
-        spacing: 20,
+        circleRadius: 6,
+        spacing: 15,
         textOffset: 12,
-        backgroundRectWidth: 235
+        backgroundRectWidth: 225
       });
       this.svg.selectAll('path').data(this.featureObj.features)
         .enter().append('path')
         .attr('class', 'country')
         .attr('d', (d: any) => this.pathGenerator(d))
         .attr('fill', (d: { properties: { economy: any; }; }) => colorScale(colorValue(d)))
+        .on('mouseover', this.handleMouseOver)
+        .on('mouseout', this.handleMouseOut)
+
         .append('title')
-        .text((d: { properties: { name: string; economy: string; }; }) => d.properties.name + ": " + d.properties.economy);
+        .text((d: { properties: any; }) => d.properties.name + ": " + colorValue(d));
 
 
     })
-  
+
 
   }
+  handleMouseOver(this: any) {
+
+    d3.select(this).style('transform', 'scale(1.02,1.02)')
+      .style('transform-origin', '100% 100%');
+  }
+  handleMouseOut(this: any) {
+
+    d3.select(this).style('transform', 'scale(1,1)')
+      .style('transform-origin', '100% 100%');
+  }
+
+  
 }
+

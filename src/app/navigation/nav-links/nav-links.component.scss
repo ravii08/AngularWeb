@@ -1,5 +1,7 @@
+@import '../../../assets/styles/colors.scss';
+
 .activeLink{
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid $red;
 }
 
 .menu-links {
@@ -9,7 +11,7 @@
 }
 
 .mat-tab-nav-bar, .mat-tab-header {
-  border-bottom: white;
+  border-bottom: $white;
 }
 
 .mat-tab-link {
@@ -19,15 +21,15 @@
   font-size: 14px;
   padding: 0;
   min-width: 100px;
-  -webkit-tap-highlight-color: red;
+  -webkit-tap-highlight-color: $red;
   margin: 0 30px;
-  color: black;
+  color: $black;
   font-weight: 500;
   padding: 10px;
 }
 
 .mat-tab-link :focus {
-  border: 2px solid green;
+  border: 2px solid $green;
   padding: 10px;
 }
 
@@ -47,7 +49,7 @@
 }
 
 .mat-tab-link:focus, .mat-list-item:focus {
-  border: 2px solid skyblue;
+  border: 2px solid $skyblue;
 }
 
 .mat-list-base, .mat-list-item, .mat-list-item-content:focus {

@@ -1,3 +1,5 @@
+@import '../styles/colors.scss';
+
 .formsection{
     padding: 0 25vw;
    
@@ -5,45 +7,75 @@
 
 .mat-form-field-flex:focus-within .mat-form-field-outline{
     border-radius: 6px;
-    outline: cyan 3px solid;
+    outline: $cyan 3px solid;
     outline-offset: -1px;
 }
 
 .mat-form-field-outline-thick{
-    color: #ededed !important;
+    color: $outline-gray !important;
     border-width: thick !important;
 }
 
 .btn:focus{
-    outline: cyan 3px solid;
+    outline: $cyan 3px solid;
     outline-offset: 1px;
 }
 
 
-.country{
+
+
+@media (min-width: 200px) {
  
+  
+  .country{
     stroke: black;
     stroke-width: 0.3;
     cursor: pointer;
   }
-  
-  .country:hover{
-    fill: orange;
-    transform: scale(1.01);
-  }
-  
+     
   .tick text {
     font-size: 1em;
     fill: black;
     font-family: sans-serif;
   }
-  
+     
   .tick circle {
     stroke: black;
     stroke-opacity: 0.5;
   }
+  
   .tick{
     cursor: pointer;
   }
+  
+  .sphere{
+    fill: $skyblue;
+  }
+}
+
  
+.example-chip-list {
+  width: 100%;
+}
+.template {
+  width: 30vw;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 4%;
+  border: 1px solid grey;
+}
+.mat-card-header {
+  height: 50px;
+  font-size: 22px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+}
+.field-card{
+  width: 30vw;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 4%;
+}
 

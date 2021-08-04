@@ -1,3 +1,4 @@
+@import '../../assets/styles/colors.scss';
 
 
 .example-card {
@@ -5,7 +6,7 @@
     max-width: 500px;
     margin: auto;
     margin-top: 4%;
-    border: 1px solid grey;
+    border: 1px solid $gray;
   }
   
   @media (max-width: 959px) {
@@ -24,8 +25,7 @@
   .mat-card-header {
     height: 50px;
     font-size: 22px;
-    font-family: 'connections Light';
-    border-radius: 5px;
+    font-family: 'Roboto';
     display: flex;
     justify-content: space-around;
     padding-top: 15px;

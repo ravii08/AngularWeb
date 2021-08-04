@@ -1,24 +1,30 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ReplaySubject } from 'rxjs';
+
 
 @Component({
   selector: 'app-drop-down',
   templateUrl: './drop-down.component.html',
-  styleUrls: ['./drop-down.component.css']
+  styleUrls: ['./drop-down.component.scss']
 })
 export class DropDownComponent implements OnInit {
 
   @Input() parentFormGroup: string;
+
   @Input() Name: string;
+
   @Input() label: string;
+
   @Input() Required? = false;
+  
   @Input() error?: string;
   
   @Input() value: string = 'value';
 
   @Input() id: string = 'id';
+
   @Input() fieldName: string;
+
+  @Input() placeholderValue: string;
 
   @Output() callBackOnSelect: any = new EventEmitter<string>();
 
@@ -34,4 +40,7 @@ export class DropDownComponent implements OnInit {
   onSelectionChange(selectedValue: any) : void {
     this.callBackOnSelect.emit(selectedValue)
   }
+
+ 
+ 
 }

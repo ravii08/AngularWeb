@@ -10,14 +10,20 @@ import { AuthenticationService } from '../../services/authentication.service';
 @Component({
   selector: 'app-chip',
   templateUrl: './chip.component.html',
-  styleUrls: ['./chip.component.css']
+  styleUrls: ['./chip.component.scss']
 })
 export class ChipComponent  {
 
   @Input() parentFormGroup: FormGroup;
+
   @Input() Name: string;
+
   @Input() label: string;
+
   @Input() error?: string;
+
+  @Input() placeholderValue: string;
+  
   addOnBlur = true;
   removable = true;
 

@@ -3,7 +3,7 @@
     <label attr.aria-label={{label}}>{{label}}</label>
 </div>
 <div class="radio-box" [formGroup]=parentFormGroup>
-    <mat-radio-group class="radio-group" formControlName={{Name}} >
+    <mat-radio-group class="radio-group" attr.aria-label="{{label}}" formControlName={{Name}} >
         <mat-radio-button *ngFor="let option of Options" color="primary" class="radio-button"
             [value]="option" (change)="optionChanged($event)">
             <span style="padding: 10px;"> {{option}} </span>

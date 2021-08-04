@@ -1,17 +1,16 @@
 <div>
     <label attr.aria-label={{label}}>{{label}}</label>
 </div>
-<mat-form-field [formGroup]=parentFormGroup appearance="outline">
-    <mat-select placeholder="Select" formControlName={{Name}} [required]="Required">
+<mat-form-field [formGroup]=parentFormGroup appearance="outline" >
+    <mat-select placeholder={{placeholderValue}} formControlName={{Name}} 
+        attr.aria-label="{{label}}" [required]="Required">
         <mat-option>
-            <ngx-mat-select-search  aria-label="search" [placeholderLabel]="'Search...'" 
-            [noEntriesFoundLabel]="'Not Found'" 
-            [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
+            <ngx-mat-select-search aria-label="search" [placeholderLabel]="'Search...'" [(ngModel)]="searchText" 
+                [ngModelOptions]="{standalone: true}">
             </ngx-mat-select-search>
-            
         </mat-option>
         <mat-option>--RESET--</mat-option>
-        <mat-option *ngFor="let item of dropDownData | fileterData: searchText " [value]="item">
+        <mat-option *ngFor="let item of dropDownData | fileterData: searchText " [value]="item" >
             {{item}}
         </mat-option>
     </mat-select>

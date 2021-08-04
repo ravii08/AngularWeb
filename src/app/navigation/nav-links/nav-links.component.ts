@@ -1,12 +1,11 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { AuthenticationService } from '../../shared/services/authentication.service';
-import { StateService } from '../../shared/services/state.service';
+import { AuthenticationService } from '@services/authentication.service';
+import { StateService } from '@services/state.service';
 
 @Component({
   selector: 'app-nav-links',
   templateUrl: './nav-links.component.html',
-  styleUrls: ['./nav-links.component.css']
+  styleUrls: ['./nav-links.component.scss']
 })
 export class NavLinksComponent implements OnInit {
 

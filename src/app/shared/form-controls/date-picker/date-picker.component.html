@@ -3,10 +3,10 @@
 </div>
 <div>
   <mat-form-field appearance="outline" [formGroup]="parentFormGroup">
-    <input matInput attr.aria-label="{{label}}" formControlName={{Name}} [matDatepicker]="picker" [required]="Required"
-      (dateChange)="updateDOB($event)">
+    <input matInput attr.aria-label="{{label}}" placeholder={{placeholderValue}} formControlName={{Name}}
+      [matDatepicker]="picker" [required]="Required" (dateChange)="updateDOB($event)">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <mat-datepicker  #picker></mat-datepicker>
     <mat-error *ngIf=error>{{error}}</mat-error>
   </mat-form-field>
 </div>

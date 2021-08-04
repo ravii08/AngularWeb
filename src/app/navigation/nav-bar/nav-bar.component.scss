@@ -1,3 +1,6 @@
+@import '../../../assets/styles/colors.scss';
+
+
 @media (min-width: 200px) {
 .sidenav-container {
     height: 100%;
@@ -19,7 +22,10 @@
 
 .logo {
     
-    padding-right: 20px;padding-top: 18px; padding-left: 30px; margin-bottom: 10px;
+    padding-right: 20px;
+    padding-top: 18px; 
+    padding-left: 30px; 
+    margin-bottom: 10px;
 }
 
 .menu-link {
@@ -33,7 +39,7 @@
 }
     
 .mat-icon-menu {
-    color: grey;
+    color: $gray;
     position: end;
     top: 8px;
     left: 16px;
@@ -41,6 +47,6 @@
 }
 
  .mat-menu-item:focus {
-    border: 2px solid skyblue !important;
+    border: 2px solid $skyblue !important;
 }
 }

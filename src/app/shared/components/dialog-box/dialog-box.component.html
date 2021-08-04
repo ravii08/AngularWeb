@@ -12,17 +12,21 @@
         <span mat-dialog-title class="mat-title-title text">Form Data</span>
         <mat-dialog-content color="warn" *ngIf="formData">
         <mat-list>
-            <mat-list-item>UserName:  {{formData.message.Username}}</mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>DropDown: {{formData.message.dropDown}}</mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>Date: {{formData.message.JoiningDate}}</mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>Chip: {{formData.message.chip}}</mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>RadioButton: {{formData.message.RadioButton}}</mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>CheckBox: {{formData.message.check}}</mat-list-item>
+            <mat-list-item *ngIf="formData.message.userName">UserName:  {{formData.message.userName}}</mat-list-item>
+            
+            <mat-list-item *ngIf="formData.message.empId">Emploee ID:  {{formData.message.empId}}</mat-list-item>
+            
+            <mat-list-item *ngIf="formData.message.email">Email ID:  {{formData.message.email}}</mat-list-item>
+           
+            <mat-list-item *ngIf="formData.message.dropDown">DropDown: {{formData.message.dropDown}}</mat-list-item>
+            
+            <mat-list-item *ngIf="formData.message.joiningDate">Date: {{formData.message.joiningDate}}</mat-list-item>
+            
+            <mat-list-item *ngIf="formData.message.chip">Chip: {{formData.message.chip}}</mat-list-item>
+           
+            <mat-list-item *ngIf="formData.message.radioButton">RadioButton: {{formData.message.radioButton}}</mat-list-item>
+          
+            <mat-list-item *ngIf="formData.message.check">CheckBox: {{formData.message.check}}</mat-list-item>
             
           </mat-list>
         </mat-dialog-content>
