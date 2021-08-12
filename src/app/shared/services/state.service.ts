@@ -6,9 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class StateService {
 
-  ErrorType = "Error";
+  ErrorType = "error";
   FormType = "formData"
   confirmation = "confirmation";
+
+  errorMessage = '';
   navlinks = [
     {
       label: 'Dashboard',

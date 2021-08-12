@@ -1,10 +1,10 @@
-<div class="Title">
+<div class="title">
   <label attr.aria-label="{{label}}">{{label}}</label>
 </div>
 <div>
   <mat-form-field appearance="outline" [formGroup]="parentFormGroup">
-    <input matInput attr.aria-label="{{label}}" placeholder={{placeholderValue}} formControlName={{Name}}
-      [matDatepicker]="picker" [required]="Required" (dateChange)="updateDOB($event)">
+    <input matInput attr.aria-label="{{label}}" placeholder={{placeholderValue}} formControlName={{name}}
+      [matDatepicker]="picker" [required]="required" (dateChange)="updateDOB($event)">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker  #picker></mat-datepicker>
     <mat-error *ngIf=error>{{error}}</mat-error>

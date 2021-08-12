@@ -3,36 +3,36 @@
 
         <h1 align="center">Reactive Form</h1>
         <div>
-            <app-text-input [parentFormGroup]="userForm" [Name]="username" type="text" [Required]=true
+            <app-text-input [parentFormGroup]="userForm" [name]="username" type="text" [required]=true
                 [label]="userNameLabel" aria-label="Username" [placeholderValue]="usernamePlaceholder"
                 [error]="userNameError">
             </app-text-input>
         </div>
         <div class="spacer"></div>
         <div>
-            <app-drop-down  [parentFormGroup]="userForm" [error]="dropDownError" [Name]="dropDownValue" [placeholderValue]="dropDownLabel"
+            <app-drop-down  [parentFormGroup]="userForm" [error]="dropDownError" [name]="dropDownValue" [placeholderValue]="dropDownLabel"
                 [label]="dropDownLabel" [dropDownData]="dropDownData">
             </app-drop-down>
         </div>
         <div class="spacer"></div>
         <div>
             <app-date-picker [parentFormGroup]="userForm" [error]="joiningDateError" [placeholderValue]="dateLabel"
-                (onClick)="functioncall($event)" [Name]="dateValue" [label]="dateLabel"></app-date-picker>
+                (onClick)="functioncall($event)" [name]="dateValue" [label]="dateLabel"></app-date-picker>
         </div>
         <div>
-            <app-chip [parentFormGroup]="userForm" [Name]="chipValue" [error]="chipError" 
+            <app-chip [parentFormGroup]="userForm" [name]="chipValue" [error]="chipError" 
             [placeholderValue]="chipPlaceholder" [label]="chipLabel">
             </app-chip>
         </div>
         <div class="spacer"></div>
         <div>
-            <app-radio-box [parentFormGroup]="userForm" [Name]="radioButtonValue" [Options]="radioButtonData"
+            <app-radio-box [parentFormGroup]="userForm" [name]="radioButtonValue" [options]="radioButtonData"
                 (valueSelectionChanged)="onRadioChange($event)" [label]="radioButtonLabel">
             </app-radio-box>
         </div>
         <div class="spacer"></div>
         <div>
-            <app-check-box [Options]="checkedData" [parentFormGroup]="userForm" [Name]="checkValue"
+            <app-check-box [options]="checkedData" [parentFormGroup]="userForm" [name]="checkValue"
                 (valueSelectionChanged)="okcheckBoxChange($event)" [label]="checkLabel">
             </app-check-box>
         </div>

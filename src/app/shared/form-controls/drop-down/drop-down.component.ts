@@ -10,11 +10,11 @@ export class DropDownComponent implements OnInit {
 
   @Input() parentFormGroup: string;
 
-  @Input() Name: string;
+  @Input() name: string;
 
   @Input() label: string;
 
-  @Input() Required? = false;
+  @Input() required? = false;
   
   @Input() error?: string;
   

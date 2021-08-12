@@ -9,7 +9,7 @@ import { FormGroup } from '@angular/forms';
 export class DatePickerComponent implements OnInit {
   @Input() parentFormGroup: FormGroup;
 
-  @Input() Name: string;
+  @Input() name: string;
 
   @Input() labelForDate : string;
 
@@ -17,7 +17,7 @@ export class DatePickerComponent implements OnInit {
 
   @Input() error: string;
 
-  @Input() Required? = false;
+  @Input() required? = false;
 
   @Input() placeholderValue: string;
 

@@ -17,11 +17,11 @@ export class AuthenticationService {
 
   // chipUrl = 'https://jsonplaceholder.typicode.com/users';
 
-  dropDownDataUrl = 'http://localhost:4000/Users';
+  // dropDownDataUrl = 'http://localhost:4000/Users';
 
-  checkBoxDataUrl = 'http://localhost:4000/CheckBox';
+  // checkBoxDataUrl = 'http://localhost:4000/CheckBox';
 
-  radioButtonDataUrl = 'http://localhost:4000/RadioButton';
+  // radioButtonDataUrl = 'http://localhost:4000/RadioButton';
 
   constructor(private route: Router, private http: HttpClient) {}
   login() {

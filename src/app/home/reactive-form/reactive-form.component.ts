@@ -1,6 +1,5 @@
-import { C, V } from '@angular/cdk/keycodes';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBoxComponent } from '@components/dialog-box/dialog-box.component';
 import { DataModelService } from '@model/model/data-model.service';
@@ -17,7 +16,7 @@ import { StateService } from '@services/state.service';
 export class ReactiveFormComponent implements OnInit {
 
   public userForm: FormGroup;
-  ErrorArray: any= [] ;
+  ErrorArray = [] ;
   Required = ' Required';
 
   userNameLabel = "userName";
@@ -28,7 +27,7 @@ export class ReactiveFormComponent implements OnInit {
   checkValue = "check";
   checkLabel = "checkBox";
   checkError :string;
-  checkedData:any = [];
+  checkedData = [];
 
   dropDownValue = "dropDown";
   dropDownLabel = "dropDown";
@@ -39,7 +38,7 @@ export class ReactiveFormComponent implements OnInit {
   radioButtonValue = "radioButton"
   radioButtonLabel = "Gender";
   RadioButtonError :string;
-  radioButtonData:any = [];
+  radioButtonData = [];
 
   dateValue = "joiningDate";
   dateLabel = "Select Date";
@@ -93,7 +92,6 @@ export class ReactiveFormComponent implements OnInit {
     let data = this.userForm
     if(this.userForm.valid) {
       const dialogRef = this.dialog.open(DialogBoxComponent, {
-        width: '400px',
         data: { message: data.value, type: this.stateService.FormType }
       });
     }
@@ -123,12 +121,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   checkBox() {
-    // this.apiHandlerService.getAPICall(this.service.checkBoxDataUrl).subscribe(x => {
-    //   for(let data of x) {
-    //     this.checkedData.push(data.value)
-    //   }
-    //  })
-
+ 
     this.dataModel.checkBox().subscribe(x => {
       for(let data of x) {
         this.checkedData.push(data.value)
@@ -140,12 +133,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   radioButton() {
-    // this.apiHandlerService.getAPICall(this.service.radioButtonDataUrl).subscribe(x => {
-    //   for(let data of x) {
-    //     this.radioButtonData.push(data.value)
-    //   }
-    // })
-
+  
     this.dataModel.radioButton().subscribe(x => {
       for(let data of x) {
         this.radioButtonData.push(data.value)

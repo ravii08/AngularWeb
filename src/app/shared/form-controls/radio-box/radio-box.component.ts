@@ -13,13 +13,13 @@ export class RadioBoxComponent implements OnInit {
 
   @Input() label: string;
 
-  @Input() Options: any;
+  @Input() options: any;
 
   @Input() error?: string;
 
   @Input() value: string = 'value';
 
-  @Input() Name : string;
+  @Input() name : string;
 
   @Input() parentFormGroup: FormGroup;
 

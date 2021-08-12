@@ -2,8 +2,8 @@
     <label attr.aria-label={{label}}>{{label}}</label>
 </div>
 <mat-form-field [formGroup]=parentFormGroup appearance="outline" >
-    <mat-select placeholder={{placeholderValue}} formControlName={{Name}} 
-        attr.aria-label="{{label}}" [required]="Required">
+    <mat-select placeholder={{placeholderValue}} formControlName={{name}} 
+        attr.aria-label="{{label}}" [required]="required">
         <mat-option>
             <ngx-mat-select-search aria-label="search" [placeholderLabel]="'Search...'" [(ngModel)]="searchText" 
                 [ngModelOptions]="{standalone: true}">

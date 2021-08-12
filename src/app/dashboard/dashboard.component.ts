@@ -36,8 +36,8 @@ export class DashboardComponent {
   }
   private buildSvg() {
 
-    this.width = window.innerWidth * 1.0;
-    this.height = window.innerHeight * 1.0
+    this.width = window.innerWidth * .85;
+    this.height = window.innerHeight * .85
     let projection = d3.geoNaturalEarth1().scale(140)
       .translate([this.width / 2, this.height / 2]);
     this.pathGenerator = d3.geoPath()
@@ -114,7 +114,7 @@ export class DashboardComponent {
   handleMouseOver(this: any) {
 
     d3.select(this).style('transform', 'scale(1.02,1.02)')
-      .style('transform-origin', '100% 100%');
+    
   }
   handleMouseOut(this: any) {
 

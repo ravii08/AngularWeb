@@ -1,0 +1,31 @@
+@import '../../assets/styles/colors.scss';
+
+
+.error-header {
+    text-align: center;
+    font-size: 18px;
+    color: $red;
+    white-space: pre-line;
+    line-height: 26px;
+    margin: 5% 0;
+    font-family: 'Roboto';
+}
+
+.error-message {
+    text-align: center;
+    font-size: 24px;
+    color: $black;
+    white-space: pre-line;
+    line-height: 22px;
+    margin: 5% 5%;
+    font-family: Roboto;
+}
+
+.center-button {
+    text-align: center;
+}
+
+button {
+    background-color: $blue;
+    color: $white;
+}

@@ -18,7 +18,7 @@ import { StateService } from '@services/state.service';
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   submitted = false;
-  ErrorArray: any;
+  ErrorArray = [];
   userNameLabel = "userName";
   passwordLabel = "password";
   userName = 'userName';
@@ -27,10 +27,6 @@ export class LoginComponent implements OnInit {
   userNameError:string;
   passwordError:string;
   
-  
-
- 
-
   
   formError = [{ name: this.userName, Text: this.userNameLabel },
   { name: this.password, Text: this.passwordLabel }];
@@ -48,7 +44,7 @@ export class LoginComponent implements OnInit {
     private service: AuthenticationService, private _router: Router, public userLoginForm: FormBuilder, public dialog: MatDialog,
     public stateService: StateService, public apiHandlerService: ApiHandlerService, public datModel: DataModelService) { }
 
-  login() {
+  submitForm() {
     this.ValidateFields();
     if (this.loginForm.invalid) {
       const dialogRef = this.dialog.open(DialogBoxComponent, {

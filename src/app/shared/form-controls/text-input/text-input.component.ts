@@ -16,11 +16,11 @@ export class TextInputComponent  {
 
   @Input() fieldName: string;
 
-  @Input() Name: string;
+  @Input() name: 'string';
 
   @Input() error: string;
 
-  @Input() Required? = false;
+  @Input() required? = false;
 
   @Input() placeholderValue : string;
 

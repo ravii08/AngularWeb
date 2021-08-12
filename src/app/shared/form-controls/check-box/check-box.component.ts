@@ -13,13 +13,13 @@ export class CheckBoxComponent implements OnInit {
 
   @Input() label: string;
 
-  @Input() Options: any;
+  @Input() options: any;
 
   @Input() error?: string;
 
   @Input() value: string;
 
-  @Input() Name: string;
+  @Input() name: string;
 
   @Input() parentFormGroup : FormGroup;
 

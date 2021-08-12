@@ -32,6 +32,7 @@ import { MatSelectFilterModule } from 'mat-select-filter';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import { SharedModule } from './shared/shared.module';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { SharedModule } from './shared/shared.module';
     HomeComponent,
     NavLinksComponent,
     NavBarComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

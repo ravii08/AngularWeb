@@ -1,4 +1,4 @@
-<div class="Title">
+<div class="title">
     <label attr.aria-label={{label}}>{{label}}</label>
   </div>
   <div>
@@ -6,12 +6,12 @@
       <input label
         attr.aria-label="{{label}}"
         role="textbox"
-        [required]="Required? 'true' : null"
+        [required]="required? 'true' : null"
         matInput
         [type]="type"
         [id]="fieldName"
         name={{fieldName}}
-        formControlName={{Name}}
+        formControlName={{name}}
         placeholder={{placeholderValue}}
       />
       <mat-error *ngIf="error">{{error}}</mat-error>

@@ -5,10 +5,11 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
 .card {
-    width: 120px;
-    height: 80px; 
+    margin: 50px;
     background-color: $lightgrey;
+   
 }
 
 .card:hover {
@@ -19,7 +20,7 @@
 @media (max-width: 959px) {
     
     .card {
-        margin-top: 15px;
+        margin: 40px;
     }   
 }
 

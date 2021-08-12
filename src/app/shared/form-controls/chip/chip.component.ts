@@ -16,7 +16,7 @@ export class ChipComponent  {
 
   @Input() parentFormGroup: FormGroup;
 
-  @Input() Name: string;
+  @Input() name: string;
 
   @Input() label: string;
 
