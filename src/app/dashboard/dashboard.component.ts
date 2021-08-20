@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import * as d3 from 'd3';
 import { colorLegend } from './colorlegend';
-import { G } from '@angular/cdk/keycodes';
 import * as t from 'topojson';
-import { AuthenticationService } from '../shared/services/authentication.service';
-import { StateService } from '../shared/services/state.service';
 import { forkJoin } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -22,13 +19,14 @@ export class DashboardComponent {
   objects: any;
   countryObject: any;
   featureObj: any;
-  stringFeature: string | undefined;
+  stringFeature: string;
   rowObject: any;
-  width: number | undefined;
-  height: number | undefined;
+  width: number;
+  height: number;
+  errors: any;
 
 
-  constructor() {
+  constructor(private _snackBar: MatSnackBar) {
 
   }
   public ngOnInit(): void {
@@ -36,8 +34,8 @@ export class DashboardComponent {
   }
   private buildSvg() {
 
-    this.width = window.innerWidth * .85;
-    this.height = window.innerHeight * .85
+    this.width = window.innerWidth * 1.0;
+    this.height = window.innerHeight * 1.0
     let projection = d3.geoNaturalEarth1().scale(140)
       .translate([this.width / 2, this.height / 2]);
     this.pathGenerator = d3.geoPath()
@@ -54,7 +52,7 @@ export class DashboardComponent {
       .attr('d', this.pathGenerator({ type: 'Sphere' }));
 
     const colorLegendG = this.svg.append('g')
-      .attr('transform', `translate(260,350)`);
+      .attr('transform', `translate(170,380)`);
 
     forkJoin([
       d3.tsv('https://unpkg.com/world-atlas@1.1.4/world/50m.tsv'),
@@ -107,19 +105,25 @@ export class DashboardComponent {
         .text((d: { properties: any; }) => d.properties.name + ": " + colorValue(d));
 
 
-    })
-
+    },(error) => {
+      console.log(error);
+      console.log("We have encountered an error");
+      this._snackBar.open("We have encountered an error","",{duration:1000});
+    });
+    
 
   }
   handleMouseOver(this: any) {
 
-    d3.select(this).style('transform', 'scale(1.02,1.02)')
-    
+    d3.select(this)
+    .attr('class', 'country')
   }
   handleMouseOut(this: any) {
 
-    d3.select(this).style('transform', 'scale(1,1)')
-      .style('transform-origin', '100% 100%');
+    d3.select(this)
+    
+    .style('transform', 'scale(1)')
+      .style('zIndex', '1');
   }
 
   

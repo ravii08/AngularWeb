@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { SharedRoutingModule } from './shared-routing.module';
 import { TextInputComponent } from './form-controls/text-input/text-input.component';
 import { DatePickerComponent } from './form-controls/date-picker/date-picker.component';
@@ -31,6 +30,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { FileterDataPipe } from './pipes/fileter-data.pipe';
+import {MatSnackBarModule} from '@angular/material/snack-bar'
 
 
 @NgModule({
@@ -69,7 +69,8 @@ import { FileterDataPipe } from './pipes/fileter-data.pipe';
     MatToolbarModule,
     MatInputModule,
     MatTabsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSnackBarModule
   ],
 
   exports: [

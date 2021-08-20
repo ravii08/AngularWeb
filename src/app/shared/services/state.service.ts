@@ -7,10 +7,15 @@ import { Injectable } from '@angular/core';
 export class StateService {
 
   ErrorType = "error";
-  FormType = "formData"
+
+  FormType = "formData";
+
   confirmation = "confirmation";
 
   errorMessage = '';
+
+  reactiveFormData:  any;
+
   navlinks = [
     {
       label: 'Dashboard',

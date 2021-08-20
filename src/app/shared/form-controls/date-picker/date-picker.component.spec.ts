@@ -35,7 +35,7 @@ describe('DatePickerComponent', () => {
     component.parentFormGroup = formBuilder.group({
       JoiningDate: [new Date(), Validators.required]
     });
-    component.Name = 'JoiningDate'
+    component.name = 'JoiningDate'
     fixture.detectChanges();
   });
 

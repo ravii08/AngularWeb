@@ -38,6 +38,9 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
 
+    this.loginForm.valueChanges.subscribe(() => {
+      this.onFormValuesChange();
+    })
   }
 
   constructor(
@@ -45,6 +48,7 @@ export class LoginComponent implements OnInit {
     public stateService: StateService, public apiHandlerService: ApiHandlerService, public datModel: DataModelService) { }
 
   submitForm() {
+    this.submitted = true;
     this.ValidateFields();
     if (this.loginForm.invalid) {
       const dialogRef = this.dialog.open(DialogBoxComponent, {
@@ -73,6 +77,12 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem('userRole', response[0].userRole);
     sessionStorage.setItem('userID', response[0].userId)
 
+  }
+
+  onFormValuesChange() {
+    if(this.submitted) {
+      this.ValidateFields()
+    }
   }
 
   ValidateFields() {

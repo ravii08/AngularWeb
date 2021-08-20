@@ -51,6 +51,7 @@ export class ReactiveFormComponent implements OnInit {
   chipPlaceholder = "Select chip"
   alFieldError = [];
 
+  submittedData = ''
 
   formError = [{ name: this.username, Text: this.userNameLabel },
     {name: this.dropDownValue, Text: this.dropDownLabel},
@@ -86,6 +87,8 @@ export class ReactiveFormComponent implements OnInit {
     return;
    }
   this.validateForm();
+  this.stateService.reactiveFormData = this.userForm.value
+  console.log(this.stateService.reactiveFormData)
   }
 
   validateForm() {
@@ -95,7 +98,7 @@ export class ReactiveFormComponent implements OnInit {
         data: { message: data.value, type: this.stateService.FormType }
       });
     }
-  }
+   }
  
   okcheckBoxChange(event) {
     
@@ -142,7 +145,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   
- functioncall(event: any) {
+ functionCall(event:any) {
       this.date = event.value
       const converted = new Date(this.date).toLocaleDateString(); 
 }

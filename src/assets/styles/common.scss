@@ -27,10 +27,20 @@
 @media (min-width: 200px) {
  
   
-  .country{
-    stroke: black;
-    stroke-width: 0.3;
-    cursor: pointer;
+  .country:hover {
+    animation-name: example;
+    animation-duration: 2s;
+  }
+  
+  @keyframes example {
+    from { 
+    }
+    to { transform: scale(1.04);
+      transform-origin: center ;
+      position:absolute;
+      z-index: 1;
+     }
+    
   }
      
   .tick text {

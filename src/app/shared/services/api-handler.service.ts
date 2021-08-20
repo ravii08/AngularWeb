@@ -73,17 +73,14 @@ public postAPICall(url: string,payload: any): Observable<any> {
 }
 
 handleError(error) {
- 
   if (error.error instanceof ErrorEvent) {
     // client-side error
-    this.stateService.errorMessage = `Error: ${error.error.message}`;
+    this.stateService.errorMessage = error.error.message;
     this.router.navigate(['/error']);
   } else {
     // server-side error
-    this.stateService.errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    this.stateService.errorMessage = error.message
     this.router.navigate(['/error']);
   }
-  
- 
 }
 }
