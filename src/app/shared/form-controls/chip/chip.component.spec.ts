@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { ChipComponent } from './chip.component';
 
@@ -8,6 +9,9 @@ describe('ChipComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatAutocompleteModule
+      ],
       declarations: [ ChipComponent ]
     })
     .compileComponents();

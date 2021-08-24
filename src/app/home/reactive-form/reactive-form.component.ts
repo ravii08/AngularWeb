@@ -119,9 +119,6 @@ export class ReactiveFormComponent implements OnInit {
     })
   }
 
-  dropOnSelect(selectedValue:any) {
-    this.dropDownData = selectedValue.value
-  }
 
   checkBox() {
  

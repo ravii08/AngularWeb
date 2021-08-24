@@ -10,15 +10,15 @@ import { StateService } from '../shared/services/state.service';
 })
 export class HomeComponent implements OnInit {
 
-  forms = [
-    {"id":1 , value: "Reactive Form"},
-    {"id":2 , value: "Template Form"}
-  ]
+  // forms = [
+  //   {"id":1 , value: "Reactive Form"},
+  //   {"id":2 , value: "Template Form"}
+  // ]
 
   constructor(public stateVariable: StateService, public router: Router) { }
 
-  ngOnInit(): void {
-    console.log("home")
+  ngOnInit() {
+    
   }
 
 

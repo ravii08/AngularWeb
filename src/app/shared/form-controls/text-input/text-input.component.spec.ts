@@ -26,7 +26,7 @@ describe('TextInputComponent', () => {
       ],
       declarations: [ TextInputComponent ],
       providers: [
-        {provide: FormBuilder, useValue: formBuilder},
+        
         
       ]
     })
@@ -36,6 +36,10 @@ describe('TextInputComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TextInputComponent);
     component = fixture.componentInstance;
+    component.parentFormGroup = formBuilder.group({
+      username: ["username"],
+    });
+    component.name = 'username'
     fixture.detectChanges();
   });
 

@@ -52,7 +52,9 @@ export class NavBarComponent implements OnInit {
 
 
   closeDrawer() {
+    if(this.drawer) {
     this.drawer.close();
+    }
   }
 
   @HostListener("window:resize")

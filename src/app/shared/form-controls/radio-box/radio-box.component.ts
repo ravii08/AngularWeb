@@ -30,8 +30,8 @@ export class RadioBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  optionChanged(value: any) {
-    this.valueSelectionChanged.emit(value.source.value)
+  optionChanged() {
+    this.valueSelectionChanged.emit()
   }
 
 }

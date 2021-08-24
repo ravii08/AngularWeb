@@ -16,7 +16,7 @@ export class TextInputComponent  {
 
   @Input() fieldName: string;
 
-  @Input() name: 'string';
+  @Input() name: string;
 
   @Input() error: string;
 

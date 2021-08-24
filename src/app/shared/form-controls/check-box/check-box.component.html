@@ -5,7 +5,7 @@
 <form class="check-box" [formGroup]="parentFormGroup" attr.aria-label="{{label}}">
   <div class="checkboxElement" *ngFor="let option of options">
     <mat-checkbox color="primary" class="mat-check-margin" attr.aria-label="{{label}}"  formControlName={{name}} 
-      [value]="option" (change)="checkBoxChange($event)">
+      [value]="option" (change)="checkBoxChange()">
       <span class="option"> {{option}} </span>
     </mat-checkbox>
   </div>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class DropDownComponent implements OnInit {
 
-  @Input() parentFormGroup: string;
+  @Input() parentFormGroup: FormGroup;
 
   @Input() name: string;
 
@@ -26,7 +27,7 @@ export class DropDownComponent implements OnInit {
 
   @Input() placeholderValue: string;
 
-  @Output() callBackOnSelect: any = new EventEmitter<string>();
+  @Output() callBackOnSelect: any = new EventEmitter();
 
   searchText: any  = '';
 
@@ -37,8 +38,8 @@ export class DropDownComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelectionChange(selectedValue: any) : void {
-    this.callBackOnSelect.emit(selectedValue)
+  onSelectionChange()  {
+    this.callBackOnSelect.emit()
   }
 
  

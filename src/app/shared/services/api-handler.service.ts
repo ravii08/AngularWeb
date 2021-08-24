@@ -33,10 +33,11 @@ constructAPIUrl(url) {
 }
 
 // this method used to call any deleteAPICall
-public deleteAPICall(url: string): Observable<any> {
+public deleteAPICall(url: string, params: any): Observable<any> {
   if(url) {
     return this.http.delete<any>(this.constructAPIUrl(url), {
-      headers: new HttpHeaders(this.stateService.headerOptions)
+      headers: new HttpHeaders(this.stateService.headerOptions),
+      params
     }).pipe(
       catchError((error) => {
         this.handleError(error);
