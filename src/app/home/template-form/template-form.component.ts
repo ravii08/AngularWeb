@@ -52,7 +52,6 @@ export class TemplateFormComponent implements OnInit {
   openDialog() {
     let data = this.MyForm
     const dialogRef = this.dialog.open(DialogBoxComponent, {
-     width: '400px',
      data: { message: data.value, type: this.stateService.FormType }
     })
 

@@ -106,9 +106,7 @@ export class DashboardComponent {
 
 
     },(error) => {
-      console.log(error);
-      console.log("We have encountered an error");
-      this._snackBar.open("We have encountered an error","",{duration:1000});
+      this._snackBar.open("We have encountered an error","",{duration:5000});
     });
     
 
