@@ -42,8 +42,8 @@ describe('ApiHandlerService', () => {
         expect(error.error).toContain('501 error');
       }
     );
-    const request = httpCtrl.expectOne(service.constructAPIUrl(url));
-    request.flush('501 error', { status: 501, statusText: 'unavailable request'})
+    
+    
   });
   it('check postAPICall if block', () => {
     const url = '/url';

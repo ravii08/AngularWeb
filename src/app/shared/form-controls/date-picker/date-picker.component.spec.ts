@@ -47,7 +47,7 @@ describe('DatePickerComponent', () => {
     spyOn(component.onClick,'emit');
     component.updateDOB(event);
     expect(component.updateDOB).toBeTruthy();
-    expect(component.onClick.emit).toHaveBeenCalled
+    expect(component.onClick.emit).toHaveBeenCalled()
   });
   afterEach(() => {
     fixture.destroy()

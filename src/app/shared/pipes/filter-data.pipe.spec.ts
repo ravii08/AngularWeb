@@ -1,4 +1,4 @@
-import { FileterDataPipe } from './fileter-data.pipe';
+import { FileterDataPipe } from './filter-data.pipe';
 
 describe('FileterDataPipe', () => {
   it('create an instance', () => {

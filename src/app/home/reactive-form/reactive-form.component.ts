@@ -15,7 +15,8 @@ import { StateService } from '@services/state.service';
 })
 export class ReactiveFormComponent implements OnInit {
 
-  public userForm: FormGroup;
+  userForm: object;
+  public reactiveForm: FormGroup;
   ErrorArray = [] ;
   Required = ' Required';
 
@@ -63,14 +64,16 @@ export class ReactiveFormComponent implements OnInit {
     public stateService: StateService, public apiHandlerService: ApiHandlerService, public dataModel: DataModelService) { }
 
   ngOnInit() {
-    this.userForm = this.userLoginForm.group({
+    
+    this.userForm = {
       userName: ['', Validators.required],
       dropDown: ['',Validators.required],
       joiningDate: [new Date(),Validators.required],
       chip: [''],
       radioButton: [''],
       check: ['']
-    });
+    };
+    this.reactiveForm  =  this.userLoginForm.group(this.userForm)
     this.dropDown();
     this.checkBox();
     this.radioButton();
@@ -80,22 +83,22 @@ export class ReactiveFormComponent implements OnInit {
   submit() {
    
    this.ValidateFields();
-   if(this.userForm.invalid){
+   if(this.reactiveForm.invalid){
     const dialogRef = this.dialog.open(DialogBoxComponent, {
       data: { message: this.ErrorArray , type: this.stateService.ErrorType }
     });
     return;
    }
   this.validateForm();
-  this.stateService.reactiveFormData = this.userForm.value
+  this.stateService.reactiveFormData = this.reactiveForm.value
   console.log(this.stateService.reactiveFormData)
   }
 
   validateForm() {
-    let data = this.userForm
-    if(this.userForm.valid) {
+    let data = this.reactiveForm.value
+    if(this.reactiveForm.valid) {
       const dialogRef = this.dialog.open(DialogBoxComponent, {
-        data: { message: data.value, type: this.stateService.FormType }
+        data: { message: data, type: this.stateService.FormType }
       });
     }
    }
@@ -150,8 +153,8 @@ export class ReactiveFormComponent implements OnInit {
 ValidateFields() {
   
   this.ErrorArray = [];
-  for (const loginControl in this.userForm.controls) {
-    const control = this.userForm.get(loginControl);
+  for (const loginControl in this.reactiveForm.controls) {
+    const control = this.reactiveForm.get(loginControl);
     control.markAsTouched();
     if (control.errors) {
       for (const typeError in control.errors) {

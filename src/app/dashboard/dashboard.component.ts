@@ -32,7 +32,7 @@ export class DashboardComponent {
   public ngOnInit(): void {
     this.buildSvg();
   }
-  private buildSvg() {
+  public buildSvg() {
 
     this.width = window.innerWidth * 1.0;
     this.height = window.innerHeight * 1.0

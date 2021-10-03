@@ -29,7 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
-import { FileterDataPipe } from './pipes/fileter-data.pipe';
+import { FileterDataPipe } from './pipes/filter-data.pipe';
 import {MatSnackBarModule} from '@angular/material/snack-bar'
 
 

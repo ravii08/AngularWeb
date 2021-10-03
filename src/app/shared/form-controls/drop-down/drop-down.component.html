@@ -10,7 +10,7 @@
             </ngx-mat-select-search>
         </mat-option>
         <mat-option>--RESET--</mat-option>
-        <mat-option *ngFor="let item of dropDownData | fileterData: searchText " [value]="item" >
+        <mat-option *ngFor="let item of dropDownData | filterData: searchText " [value]="item" >
             {{item}}
         </mat-option>
     </mat-select>

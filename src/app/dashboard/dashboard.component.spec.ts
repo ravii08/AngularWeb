@@ -34,4 +34,13 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('Build SVG function', ()=>{
+    spyOn(component, 'buildSvg');
+    component.buildSvg();
+    expect(component.buildSvg).toHaveBeenCalled()
+  });
+  it('Have width and height',() =>{
+    expect(component.width).toBe(window.innerWidth * 1.0);
+    expect(component.height).toBe(window.innerHeight * 1.0);
+  })
 });

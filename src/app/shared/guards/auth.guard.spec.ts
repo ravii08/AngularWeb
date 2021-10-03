@@ -4,7 +4,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AuthGuard } from './auth.guard';
-import { AuthenticationService } from './shared/services/authentication.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 describe('AuthGuard', () => {
   let guard: AuthGuard;

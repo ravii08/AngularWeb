@@ -34,7 +34,7 @@ export class TemplateFormComponent implements OnInit {
   constructor(public dialog: MatDialog, public stateService: StateService) { }
 
   ngOnInit() {
-   console.log(this.formData)
+   console.log(this.formData, 'okok')
   }
 
   designations: Designation[] = [
@@ -47,7 +47,6 @@ export class TemplateFormComponent implements OnInit {
     if(this.MyForm.valid){
         this.openDialog();
    }
- 
   }
   openDialog() {
     let data = this.MyForm

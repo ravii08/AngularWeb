@@ -92,9 +92,9 @@ describe('ReactiveFormComponent', () => {
   });
   it('should call DatePicker component', () => {
     const a = new Date("August 15, 2021 10:18:25")
-    component.userForm.setControl('functioncall', new FormControl(a))
+    component.reactiveForm.setControl('functioncall', new FormControl(a))
     component.functionCall(a);
-    expect(component.dropDown).toBeTruthy()
+    expect(component.functionCall).toBeTruthy()
   });
   it('submit function', () => {
     spyOn(component, 'submit');
@@ -105,7 +105,7 @@ describe('ReactiveFormComponent', () => {
     spyOn(component, 'ValidateFields');
     spyOn(component.dialog, 'open').and.returnValue({afterClosed: () => of(true)} as MatDialogRef<DialogBoxComponent>);
     component.ValidateFields()
-    expect(component.ValidateFields).toBeTruthy();
+    expect(component.ValidateFields).toHaveBeenCalled();
   });
   it('validate fields form Valid', () => {
     spyOn(component, 'validateForm');
@@ -114,7 +114,8 @@ describe('ReactiveFormComponent', () => {
     expect(component.validateForm).toHaveBeenCalled();
   });
   it('validate fields', () => {
+    spyOn(component, 'ValidateFields')
     component.ValidateFields();
-    expect(component.ValidateFields).toBeTruthy()
+    expect(component.ValidateFields).toHaveBeenCalled()
   })
 });
