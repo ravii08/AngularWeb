@@ -19,7 +19,7 @@ export class AuthenticationService {
 
   dropDownDataUrl = 'http://localhost:4000/Users';
 
-  // checkBoxDataUrl = 'http://localhost:4000/CheckBox';
+  checkBoxDataUrl = 'http://localhost:4000/CheckBox';
 
   // radioButtonDataUrl = 'http://localhost:4000/RadioButton';
 
@@ -42,9 +42,9 @@ export class AuthenticationService {
     return this.http.get<any>(this.dropDownDataUrl, headerOptions)
   }
 
-  // getCheckBoxData(): Observable<any>{
-  //   return this.http.get<any>(this.checkBoxDataUrl, headerOptions)
-  // }
+  getCheckBoxData(): Observable<any>{
+    return this.http.get<any>(this.checkBoxDataUrl, headerOptions)
+  }
 
   // getRadioButtonData(): Observable<any>{
   //   return this.http.get<any>(this.radioButtonDataUrl,headerOptions)

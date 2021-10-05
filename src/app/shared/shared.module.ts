@@ -31,6 +31,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { FileterDataPipe } from './pipes/filter-data.pipe';
 import {MatSnackBarModule} from '@angular/material/snack-bar'
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar'
     MatInputModule,
     MatTabsModule,
     MatDividerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxSpinnerModule
   ],
 
   exports: [

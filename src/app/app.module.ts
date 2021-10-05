@@ -33,6 +33,7 @@ import {MatCardModule} from '@angular/material/card';
 import { SharedModule } from './shared/shared.module';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { RouterModule } from '@angular/router';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { RouterModule } from '@angular/router';
     NgxMatSelectSearchModule,
     MatSelectFilterModule,
     MatSelectModule,
-    SharedModule
+    SharedModule,
+    NgxSpinnerModule
    
   ],
   providers: [],

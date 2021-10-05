@@ -7,6 +7,7 @@ import { DataModelService } from '@model/model/data-model.service';
 import { ApiHandlerService } from '@services/api-handler.service';
 import { AuthenticationService } from '@services/authentication.service';
 import { StateService } from '@services/state.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -63,7 +64,7 @@ export class ReactiveFormComponent implements OnInit {
     
   constructor(public userLoginForm: FormBuilder, public service: AuthenticationService, public dialog: MatDialog,
     public stateService: StateService, public apiHandlerService: ApiHandlerService, public dataModel: DataModelService,
-    public loader: LoaderService) {
+    public loader: LoaderService, private SpinnerService: NgxSpinnerService) {
       // this.loader.display(true)
      }
 
@@ -113,26 +114,30 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   dropDown() {
-    // this.apiHandlerService.getAPICall(this.service.dropDownDataUrl).subscribe(x => {
-    //   this.loader.display(false)
+    this.SpinnerService.show();  
+    this.apiHandlerService.getAPICall(this.service.dropDownDataUrl).subscribe(x => {
+      // this.loader.display(false)
+      for(let data of x) {
+        this.dropDownData.push(data.name)
+        this.SpinnerService.hide();  
+      }
+    })
+
+    // this.dataModel.dropDown().subscribe(x => {
     //   for(let data of x) {
     //     this.dropDownData.push(data.name)
     //   }
     // })
-
-    this.dataModel.dropDown().subscribe(x => {
-      for(let data of x) {
-        this.dropDownData.push(data.name)
-      }
-    })
   }
 
 
   checkBox() {
  
-    this.dataModel.checkBox().subscribe(x => {
+    this.SpinnerService.show();  
+    this.apiHandlerService.getAPICall(this.service.checkBoxDataUrl).subscribe(x => {
       for(let data of x) {
-        this.checkedData.push(data.value)
+        this.checkedData.push(data.value);
+        this.SpinnerService.hide();  
       }
     })
   }
