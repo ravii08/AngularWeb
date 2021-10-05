@@ -1,6 +1,6 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderService } from '@app/shared/services/loader.service';
 import { StateService } from '../shared/services/state.service';
 
 @Component({
@@ -15,7 +15,9 @@ export class HomeComponent implements OnInit {
   //   {"id":2 , value: "Template Form"}
   // ]
 
-  constructor(public stateVariable: StateService, public router: Router) { }
+  constructor(public stateVariable: StateService, public router: Router, public loader: LoaderService) {
+    this.loader.display(false)
+   }
 
   ngOnInit() {
     

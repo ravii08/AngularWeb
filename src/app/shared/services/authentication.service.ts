@@ -17,7 +17,7 @@ export class AuthenticationService {
 
   // chipUrl = 'https://jsonplaceholder.typicode.com/users';
 
-  // dropDownDataUrl = 'http://localhost:4000/Users';
+  dropDownDataUrl = 'http://localhost:4000/Users';
 
   // checkBoxDataUrl = 'http://localhost:4000/CheckBox';
 
@@ -38,9 +38,9 @@ export class AuthenticationService {
   //   return this.http.get<any>(this.chipUrl, headerOptions)
   // }
 
-  // getDropDownData():Observable<any> {
-  //   return this.http.get<any>(this.dropDownDataUrl, headerOptions)
-  // }
+  getDropDownData():Observable<any> {
+    return this.http.get<any>(this.dropDownDataUrl, headerOptions)
+  }
 
   // getCheckBoxData(): Observable<any>{
   //   return this.http.get<any>(this.checkBoxDataUrl, headerOptions)

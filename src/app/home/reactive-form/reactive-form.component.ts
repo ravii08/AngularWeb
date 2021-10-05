@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { LoaderService } from '@app/shared/services/loader.service';
 import { DialogBoxComponent } from '@components/dialog-box/dialog-box.component';
 import { DataModelService } from '@model/model/data-model.service';
 import { ApiHandlerService } from '@services/api-handler.service';
@@ -61,7 +62,10 @@ export class ReactiveFormComponent implements OnInit {
 
     
   constructor(public userLoginForm: FormBuilder, public service: AuthenticationService, public dialog: MatDialog,
-    public stateService: StateService, public apiHandlerService: ApiHandlerService, public dataModel: DataModelService) { }
+    public stateService: StateService, public apiHandlerService: ApiHandlerService, public dataModel: DataModelService,
+    public loader: LoaderService) {
+      // this.loader.display(true)
+     }
 
   ngOnInit() {
     
@@ -110,6 +114,7 @@ export class ReactiveFormComponent implements OnInit {
 
   dropDown() {
     // this.apiHandlerService.getAPICall(this.service.dropDownDataUrl).subscribe(x => {
+    //   this.loader.display(false)
     //   for(let data of x) {
     //     this.dropDownData.push(data.name)
     //   }

@@ -4,6 +4,7 @@ import { colorLegend } from './colorlegend';
 import * as t from 'topojson';
 import { forkJoin } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoaderService } from '@app/shared/services/loader.service';
 
 
 @Component({
@@ -26,11 +27,12 @@ export class DashboardComponent {
   errors: any;
 
 
-  constructor(private _snackBar: MatSnackBar) {
-
+  constructor(private _snackBar: MatSnackBar, public loader: LoaderService) {
+    this.loader.display(true);
   }
   public ngOnInit(): void {
     this.buildSvg();
+    
   }
   public buildSvg() {
 
@@ -56,7 +58,7 @@ export class DashboardComponent {
 
     forkJoin([
       d3.tsv('https://unpkg.com/world-atlas@1.1.4/world/50m.tsv'),
-      d3.json('https://unpkg.com/world-atlas@1.1.4/world/50m.json')
+      d3.json('https://unpkg.com/world-atlas@1.1.4/world/50m.json'),
     ]).subscribe(([tsvData, topoJsondata]) => {
 
       var idJson = JSON.stringify(tsvData);

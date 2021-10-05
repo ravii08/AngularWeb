@@ -20,6 +20,19 @@ body { margin: 0; background-color: ghostwhite; font-family: Roboto, "Helvetica 
 }
  
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/MaterialIcons-Regular.woff') format('woff')
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+}
 
 
 
