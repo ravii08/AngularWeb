@@ -2,8 +2,5 @@
     <app-nav-bar></app-nav-bar>
 </div>
 <router-outlet>
-    <!-- <div [ngClass]="{'topOverlay': loader.overlay|async, 'leftOverlay': loader.onDrawerOverlay|async, 'topBarOverlay': loader.notifyBarOverlay|async, 'topZeroOverlay': loader.fullOverlay|async}" 
-        *ngIf="loader.status|async">
-        <img src="../assets/images/loader2.gif" class="loader" alt="Loading">
-    </div> -->
+        <span *ngIf="showLoader"  class="loading" ></span>
 </router-outlet>

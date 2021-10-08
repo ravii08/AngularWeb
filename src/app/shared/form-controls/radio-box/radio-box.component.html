@@ -6,7 +6,7 @@
     <mat-radio-group class="radio-group" attr.aria-label="{{label}}" formControlName={{name}} >
         <mat-radio-button *ngFor="let option of options" color="primary" class="radio-button"
             [value]="option" (change)="optionChanged()">
-            <span style="padding: 10px;"> {{option}} </span>
+            <span class="option"> {{option}} </span>
         </mat-radio-button>
     </mat-radio-group>
     <mat-error *ngIf=error>{{error}}</mat-error>

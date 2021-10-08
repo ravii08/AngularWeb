@@ -27,13 +27,12 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { MatSelectFilterModule } from 'mat-select-filter';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import { SharedModule } from './shared/shared.module';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { RouterModule } from '@angular/router';
-import { NgxSpinnerModule } from "ngx-spinner";
+
 
 
 @NgModule({
@@ -72,10 +71,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatChipsModule,
     MatAutocompleteModule,
     NgxMatSelectSearchModule,
-    MatSelectFilterModule,
     MatSelectModule,
     SharedModule,
-    NgxSpinnerModule
+
    
   ],
   providers: [],

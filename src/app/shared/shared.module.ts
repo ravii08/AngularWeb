@@ -43,7 +43,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     DialogBoxComponent,
     DropDownComponent,
     ChipComponent,
-    FileterDataPipe
+    FileterDataPipe,
   ],
   imports: [
     CommonModule,

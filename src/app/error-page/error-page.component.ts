@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderService } from '@app/shared/services/loader.service';
 import { StateService } from '@app/shared/services/state.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { StateService } from '@app/shared/services/state.service';
 })
 export class ErrorPageComponent implements OnInit {
 
-  constructor(public router: Router, public stateService: StateService) { }
+  constructor(public router: Router, public stateService: StateService, public Loader: LoaderService) { 
+    this.Loader.display(false)
+  }
 
   ngOnInit(): void {
   }

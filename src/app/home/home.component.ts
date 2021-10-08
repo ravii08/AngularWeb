@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
   //   {"id":2 , value: "Template Form"}
   // ]
 
-  constructor(public stateVariable: StateService, public router: Router, public loader: LoaderService) {
-    this.loader.display(false)
+  constructor(public stateVariable: StateService, public router: Router) {
+    
    }
 
   ngOnInit() {

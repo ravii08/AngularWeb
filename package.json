@@ -24,7 +24,6 @@
     "@angular/router": "^12.1.2",
     "@types/d3": "^7.0.0",
     "@types/d3-queue": "^3.0.8",
-    "angular-svg": "^2.0.8",
     "d3": "^7.0.0",
     "d3-queue": "^3.0.7",
     "karma-coverage": "^2.0.3",

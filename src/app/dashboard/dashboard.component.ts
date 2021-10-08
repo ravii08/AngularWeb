@@ -28,7 +28,7 @@ export class DashboardComponent {
 
 
   constructor(private _snackBar: MatSnackBar, public loader: LoaderService) {
-    this.loader.display(true);
+    // this.loader.display(true);
   }
   public ngOnInit(): void {
     this.buildSvg();

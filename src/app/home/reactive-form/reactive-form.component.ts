@@ -65,7 +65,7 @@ export class ReactiveFormComponent implements OnInit {
   constructor(public userLoginForm: FormBuilder, public service: AuthenticationService, public dialog: MatDialog,
     public stateService: StateService, public apiHandlerService: ApiHandlerService, public dataModel: DataModelService,
     public loader: LoaderService, private SpinnerService: NgxSpinnerService) {
-      // this.loader.display(true)
+      this.loader.display(true)
      }
 
   ngOnInit() {
@@ -114,12 +114,14 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   dropDown() {
-    this.SpinnerService.show();  
+   
+    
+    // this.loader.display(true);
     this.apiHandlerService.getAPICall(this.service.dropDownDataUrl).subscribe(x => {
-      // this.loader.display(false)
+      this.loader.display(false)
       for(let data of x) {
         this.dropDownData.push(data.name)
-        this.SpinnerService.hide();  
+        
       }
     })
 
@@ -133,11 +135,12 @@ export class ReactiveFormComponent implements OnInit {
 
   checkBox() {
  
-    this.SpinnerService.show();  
+    
     this.apiHandlerService.getAPICall(this.service.checkBoxDataUrl).subscribe(x => {
+      this.loader.display(false)
       for(let data of x) {
         this.checkedData.push(data.value);
-        this.SpinnerService.hide();  
+        
       }
     })
   }
