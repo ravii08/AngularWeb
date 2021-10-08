@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
-import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 @NgModule({
@@ -31,8 +31,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatSelectModule,
     MatRadioModule,
     MatDatepickerModule,
-    NgxSpinnerModule
-
+  
   ]
 })
 export class HomeModule { }

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBoxComponent } from '@components/dialog-box/dialog-box.component';
 import { StateService } from '@services/state.service';
+import { HomeModule } from '../home.module';
 
 export interface Designation {
   id: string;

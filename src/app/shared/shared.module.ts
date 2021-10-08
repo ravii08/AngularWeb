@@ -22,7 +22,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatSelectFilterModule } from 'mat-select-filter';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -31,7 +30,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { FileterDataPipe } from './pipes/filter-data.pipe';
 import {MatSnackBarModule} from '@angular/material/snack-bar'
-import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 @NgModule({
@@ -63,7 +62,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatChipsModule,
     MatAutocompleteModule,
     NgxMatSelectSearchModule,
-    MatSelectFilterModule,
     MatSelectModule,
     MatButtonModule,
     MatCardModule,
@@ -72,7 +70,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatTabsModule,
     MatDividerModule,
     MatSnackBarModule,
-    NgxSpinnerModule
   ],
 
   exports: [

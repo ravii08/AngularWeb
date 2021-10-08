@@ -7,7 +7,7 @@ import { DataModelService } from '@model/model/data-model.service';
 import { ApiHandlerService } from '@services/api-handler.service';
 import { AuthenticationService } from '@services/authentication.service';
 import { StateService } from '@services/state.service';
-import { NgxSpinnerService } from 'ngx-spinner';
+
 
 
 @Component({
@@ -64,7 +64,7 @@ export class ReactiveFormComponent implements OnInit {
     
   constructor(public userLoginForm: FormBuilder, public service: AuthenticationService, public dialog: MatDialog,
     public stateService: StateService, public apiHandlerService: ApiHandlerService, public dataModel: DataModelService,
-    public loader: LoaderService, private SpinnerService: NgxSpinnerService) {
+    public loader: LoaderService) {
       this.loader.display(true)
      }
 
