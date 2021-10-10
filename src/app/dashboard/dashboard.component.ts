@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-import { colorLegend } from './colorlegend';
+import { colorLegend } from './colorLegend';
 import * as t from 'topojson';
 import { forkJoin } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
